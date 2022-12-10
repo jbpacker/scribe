@@ -1,0 +1,1538 @@
+SPEAKER A
+Blink once if you know when Elder Scroll Six is coming out, but are not going to tell me. The following is a conversation with Todd Howard, one of the greatest video game designers of all time. He has led the development of the Fallout series and the Elder Scroll series, including Arena, Daggerfall, Morrow, Wind, Oblivion, Skyrim, and the future of Elder Scrolls Six and a totally new world in an upcoming game called Starfield. Many of these have won Game of the Year awards and have been some of the most celebrated and impactful games ever made. To me, Skyrim is quite possibly the greatest game ever. This is Alex Friedman podcast. To support it, please check out our sponsors in the description. And now to your friends here's. Todd Howard. Is it possible that we are currently living inside a video game? That the future you designed? Can you give hints as to how one would escape if this was a video game? How can a video game character escape to outside the video game? Are these things you don't consider when you design the game?
+
+SPEAKER B
+Actually, we do, because in the kind of games that we make, we want it to be as open as possible. So when you start a game, you're always testing it, what can I do? What would the game allow me to do? And you check everything. You try to pick up the mugs. You try every door. You collide with everything. Like, hey, what are the rules of this world? We try to do games where we say yes as much as possible. That leads to some level of chaos. But if you were stuck in a video game, you would try everything. And usually you're going to find a door or a space where the designers didn't anticipate you piling all those crates up and getting over a wall that they didn't expect.
+
+SPEAKER A
+Right? So it's not a designed doorway out. It's accidental unintended doorway out. And it's a happy bug.
+
+SPEAKER B
+You could like Truman Show, just get in the ocean and go to keep going.
+
+SPEAKER A
+Keep going.
+
+SPEAKER B
+Right.
+
+SPEAKER A
+But the more realistic the game becomes, the harder it is to find that door. The bigger the world, the bigger the open world.
+
+SPEAKER B
+And then as we do it, we learn they're going to find a way. So just don't try to pen them in. Usually we leave like this developer test cell area in the game that we don't anticipate anyone will find and they ultimately find. It usually has crates of all the weapons in the game and things like that.
+
+SPEAKER A
+The little hints you drop now will just drive people mad, which is something I enjoy deeply. So Skyrim NPCs have, at times, hilarious dialogue. What does it take to build a good NPC dialogue?
+
+SPEAKER B
+The main thing is to make them reactive. A lot of times when you write characters for movies or things like that, you want to make that character interesting for themselves. Right. What's their story? And there are some characters like that that the player definitely cares about. But the best characters are the ones that react to you. So you'll find a lot of people love our guards, and the guards are written almost purely to be reactive. Hey, nice tie. Like your jacket. Do this. Cool watch. Hey, what'd you do? And so that, hey, you're the man as you walk by. That makes them interesting or the way they react to something that you do. Lydia in Skyrim, who everybody loves, I'm sworn to carry your burdens. That's a generic line that all of the house Carls have. And it just kind of lands when she says it.
+
+SPEAKER A
+Why does it land? And did you anticipate it would land?
+
+SPEAKER B
+There's a slight snarkiness in that particular read of it. And you're asking her to do something and she's reacting to you.
+
+SPEAKER A
+What about the trade off between maybe the randomness and the scripted nature of the dialogue? Is there any room for randomness of the dialog tree?
+
+SPEAKER B
+Oh, absolutely. We tend to write them in stacks. I think it was a small state machine that just says, okay, this is what's happening. Here's a random list of things I could say to that. And then some of that plays out in ways you don't anticipate. But we look at the things what are the players doing that we could have the characters respond to, that they don't expect jumping on tables or stealing stuff or sneaking in in the middle of the night or those kind of things. The more that we can do, the more reactive and interesting the characters appear.
+
+SPEAKER A
+And these state machines, how big are these things? Are these individual to the individual characters? That's just fascinating. How you design state machines. Is it just a giant?
+
+SPEAKER B
+I would think of the AI as one big one. Yeah. For sort of everybody.
+
+SPEAKER A
+So there's an AI, there's a manager.
+
+SPEAKER B
+For all the people. And one of the things people manager. One of the things that makes what we do particularly unique is and this is a trade off for what people are seeing because a lot of it's not on the screen, but we're using cycles to run this, which is we're thinking about everybody in the whole world all the time. The ones that are further away at a much less tick rate, they go into low. But we know if they want to walk across the world and we're running every quest at the same time. Whereas in other weapon world games, you start in activity, the rest of the world is going to shut down so that they can really make that as impactful. I really prefer that the rest of it's going on. It's more of a simulation that we're building. So when those things collide, that's where it gets the most interesting. And so we're running all of those people and understanding where they want to go in their cycles and what they want to do and the ones that are closer to you, we just update a lot more. It's one way to think about it.
+
+SPEAKER A
+I mean, that's really fascinating. It's something that people had. They were wondering about to what degree it's possible to run the world without you. So there is a feeling to role playing games that you're the central, you're at the center of the world, and the whole world rotates around you as it does in normal life. Like when we walk around, when you forget yourself, you start to take yourself very seriously, like you are the center of the world. You forget that there's 8 billion people on Earth, and you forget that they have lies. That's actually a sobering realization that they all have really interesting life stories and they have their worries. They suffer in different complicated ways. And yet when you play a role playing game, there's both computationally from a storytelling perspective, you wonder if the world goes on without you. Like if you come back, if you take a break and you come back, is there still a bustling town that now has a history since you have last visited? So to what degree can you create a world that goes on without you or goes on at the same time as you do your thing, whatever the heck you're doing?
+
+SPEAKER B
+We don't prioritize the stuff you can't see. So it's more like an amusement park. If you study like the design or level designers did this, how do they build Disney World in these places? So it still exists for you, the player? So it is fairly when you're going to come in, this is what you're going to see. The shops are in the front. You're going to do this. It's just for us to make it far more believable and get some more emergent behavior that not just make this sort of the various militude of what you're in for that moment, but you buy it all. Always say we got to do the little things so that you buy the reality of the virtual world you're in. So we want to do something crazy when a dragon lands or a death law comes out of the wasteland or those kind of things, that it has the impact to you as the viewer that it would to the people in the world.
+
+SPEAKER A
+Okay, but still you are simulating stuff that's close to you. It is a bit of a simulation going on.
+
+SPEAKER B
+Oh, absolutely, yes.
+
+SPEAKER A
+So that creates some interesting dynamics then.
+
+SPEAKER B
+And the stuff that we're looking at in the future, our plan is to push that even more, to think about how these things exist in the world first. And we do some of this, but even more so in the future to say, how do these things exist? Take like a faction in the world. What is their role in the world as opposed to just their role? Is for the player to join it, go through a bunch of quests and become the head of the faction. Think a little bit deeper about the simulation. And what would the Mage's Guild be doing in a fantasy world or the Fighter's Guild be doing in a fantasy world versus just sign up, do quests get gold?
+
+SPEAKER A
+And so that when you show up to that majors guild, it's a bustling guild full of stuff going on.
+
+SPEAKER B
+It's not just that it's bustlings that they feel rooted in it. They don't feel like a storefront for come here. Do quests get experience?
+
+SPEAKER A
+Is that one of the essential components of randomly generated worlds? So when I think back to Daggerfall as gigantic world, when I first played it, I thought, like, you're just struck by the immensity of it, right? The immensity of the possibility. When you're young and you look into your future, it's wide open, you can do anything. And that's what Dagger fall felt like. The openness was gigantic.
+
+SPEAKER B
+And Dagger fall is interesting coming off arena, where arena does the same thing. But Dagger fall in many ways is bigger despite focusing on an area because of how the density of, okay, this is how much physical game space will do for these villages and towns. And it does feel endless, even though you're looking at a map that has constraints. And Daggerfall actually was a touchstone for us going into Starfield for how we do the planets, because there's a different kind of gameplay experience when you just wander outside a city in Daggerfall, then follow a quest line and go through go to this place and it's completely handcrafted and everything. Around every corner, we've kind of placed like skyrim. Starfield is a bit more like Daggerfall. And if you want or outside the city, we're going to be generating things and you kind of get used to that. Game flow different than we've done before and fun in a different kind of way.
+
+SPEAKER A
+We'll talk about Starfield just for people who don't know and how dare you for not knowing. But with Dagafall, we're talking about the Elder Scrolls series that started talking about the big titles within the series started with arena in 94, Dagofall in 96. I didn't look up the years before this. This is depressing or or awesome. So all of these games brought hundreds, probably for some of them, thousands of hours of joy for me. So. Arena Daggerfall. Morrow went oblivion. And Skyrim? So I don't remember arena being that open world.
+
+SPEAKER B
+Well, it's all the provinces. It follows kind of the same pattern. It just doesn't have all the number of villages and places that Daggerfall has. While Daggerfall focuses on the Iliac Bay Area Arena does it all. It just changes the scale in terms of one block on the map equals this much space.
+
+SPEAKER A
+There is something that I mean, I'm speaking to anecdotal experience, but I just remember it feeling wide open. Daggerfall it definitely was in the way arena didn't. I don't remember. Maybe because arena, it was so cool to have just the role playing game aspect. You were focused on the items and the character development.
+
+SPEAKER B
+Daggerfall has a lot more depth, particularly in the character system. That's what it introduces, all of the skills and those kinds of things. Arena, it's a game I love, and it's very, very elegant. If you look at the first one where it's just an XP based system. Do this, get XP, level up. Very classic role playing game. Daggerfall, digs deep into who's your character, how are you going to develop it? What are your skills? There's advantages, there's disadvantages. And the environment. Going full 3D from arena, which is actually like a two and a half D Doom style engine. I agree with you that Dagger Fall feels like there's more possibilities when you're playing it.
+
+SPEAKER A
+Were you able to look up the sky in Dagger fall? My memory full 3D. Yeah. So that's what full 3D means. And then you can go outside the city.
+
+SPEAKER B
+You can walk outside the city. You can do that in arena, too, but it looks more faky. Right? It's all going to be a flat plane. Here comes things. And then a dungeon entrance is eight bit. Here comes a little flat coming at the camera.
+
+SPEAKER A
+So before we go to the end in the middle. So from Starfield to Fall Out and the Elder Scroll series, let's go to the very beginning. What's the origin story? You know, what even go before then? When was the first time you remember the thing that made you fall in love with video games?
+
+SPEAKER B
+Well, I think it's partly my age, coming up with the arcades and playing Space Invaders at the pizza place, and then Pacman, really, it's interesting about video games and what Pacman did for video games, where it popularized them in a way that was just insane at the time. Had a song, had a cartoon, had all of the things Nintendo comes along. So it was always part of I think if you were a kid growing up, then it was such a newness to playing things like that. I remember being in fifth grade when the TRS 80 was brought into the classroom, and there was a Star Trek game, and I was enamored with it. And they were going to start teaching some rudimentary programming like, okay, would you like to know how this is made? And I was hooked. I need to figure out how to make this stuff. And so I was a self taught programmer, and my whole goal was to write my own video games. And, you know, by 6th, 7th grade, I had written my own much better Star Trek clone, Apple Two. And I really enjoyed programming in the Apple Two then. And that, I think, was the right level of complexity at that age where you could kind of you were always learning, but you could still understand. A lot of the problem set for this is when I get on the screen. And I was also into art, so I did a lot of art and I did a lot of programming, and I was always making games. That was my hobby from the time I was, you know, ten or twelve.
+
+SPEAKER A
+What was, to you, involved in making games? Like, how did you think of it? Was it from a graphics perspective, like, what shows up on screen? Was it how it makes you feel? Was it about the story? Was it the text based stuff and the dialogue and the prompting? What does it mean to create a video game at that young age to you?
+
+SPEAKER B
+Well, it was a way of experiencing things that I couldn't myself. So if you're playing Dungeons and Dragons at the time, too, where you really feel even pen and paper, they feel somewhat, in quotes, real to you as you're playing them. You're very invested in your character and what you're doing. And then I loved the games that wizardry and Ultima that were able to bring that to a computer so I could do it on my own time. It was very real to me. I'd sit in my bedroom and then go to bed and think about it, and then, oh, no, I have to go to school. I want to come home and figure out how to do this problem in the game. And so whatever I was creating was something that I was excited about at the time. I made Raiders of the Lost Arc.
+
+SPEAKER A
+Game, like, with graphics and everything?
+
+SPEAKER B
+Yeah. So it was usually made a Miami Vice game, made a groove, the Wanderer game made a Traveler game. But every time I was doing it, I wanted to figure out a new method on the Apple two of pulling it off graphically, whether that was editing character sets to get graphics in different formats or how can I enable the secret double high res mode it had or just things like that, where it became kind of this limitless. What can I make this do? And I had some friends who were doing the same thing, and then you get into who can impress each other. And I was kind of middle of the pack, I would say. But again, this was the time where they're bringing computers into the school and the Apples come into the school and the teachers are learning it because they have to teach the students. But then I would say I was part of a group of students that were, like, way past that, and it was very much of a self taught. How do you make this thing dance?
+
+SPEAKER A
+I'd like to ask a strange question. So at that time, a lot of people consider you one of, if not the greatest, game designer creator of all time. You were middle of the pack then. Did you have a sense that this would be your life and you would also be creating the greatest games ever?
+
+SPEAKER B
+Not in the slightest. No, I don't think anybody but I was very much like, that was my dream at that age. But you don't think that that's a job. And as I got older, I was really going through college. Even the computer classes then weren't where I wanted them to be. So I still kind of doing my own stuff. And I ended up getting a business degree and then interviewing for some jobs, like finance jobs. Well, I guess I should do this to make money, and I can keep doing this on the side. And I remember I actually got to the final level of this corporate finance job at Circuit City.
+
+SPEAKER A
+Nice.
+
+SPEAKER B
+And they turned me down, and I was like, fuck them. I'm just going to go make video games. So. Thank you, Circuit City.
+
+SPEAKER A
+Yeah, I remember Circuit City. I think they went bankrupt, actually.
+
+SPEAKER B
+They were based in Richmond. I was going to school close to there.
+
+SPEAKER A
+So what's the origin story of you joining Bethesda Softworks at the time?
+
+SPEAKER B
+So I had gotten Wayne Gretzky Hockey Three for Christmas from my girlfriend at the time, who's now my wife. I was in college, and I noticed that it was in Rockville, Maryland, and oh, that's on my way home over Christmas break back to William and Mary, where I went to college. And I was at this point committed, like, this is what I want to do. So I'm just going to drive by and knock on the door, which is what I did. So I drove by and knocked on the door as Martin Luther King day 93, and someone came out and met me and said, well, maybe I'm in college. I'm talking about when I'm out of school. Okay, well, contact us then. And I will say I would contact them every once in a while. I did work for a small software company right out of school down in that area of Williamsburg, and still would contact Bethesda. Arena had just come out. So then where in 94, arena had just come out, and I loved it. So I was in the sports games. I like the hockey stuff. They were doing a basketball they did a basketball game.
+
+SPEAKER A
+Yeah, I'm just looking at they did a lot of they did like six sports games. Six? But that's the grid iron. Ten games, six of them. Sports games and CUPA basketball, hockey league simulator.
+
+SPEAKER B
+Simulator, yeah. So it was really like sports Grid Iron, which is like the first kind of physics based football game at the time. And there's a famous story with Electronic Arts trying to do Madden and then hiring Bethesda before my time to make Madden because they were struggling. When I started at Bethesda, I remember the owner had John Madden's Oakland Raiders playbook in his office. Like, who. Can I see that? And I love sports, right? So I still play Madden to this day. I love it.
+
+SPEAKER A
+So there's an alternate reality where I made sports games.
+
+SPEAKER B
+Yeah, absolutely. I wanted to make, like, the ultimate college football game. Well, it's like music. You probably listen to last type of music. Like, you don't play every time.
+
+SPEAKER A
+But I think of open worlds as fundamentally different. Like source of happiness, entertainment, storytelling, world gaming. Then matter, because I love both. I love both worlds.
+
+SPEAKER B
+But they're two totally different experiences. Just like when you might watch a movie, you might be in the mood for Lord of the Rings one day and then you want some other, I don't know, competitive show or game show or something like that. Or watch football on TV. Right, you watch football on TV. But then I want to watch get really into Game of Thrones. So I think all those things have validity. And actually, one of the first things I worked on when I started at Bethesda was NCAA basketball road to the Final Four two. So that was kind of an external project which came in like, hey, you know, sports get this game done. And then went on to but they were doing everything I loved. It was like, this is where I have to work. They're doing, like, the terminator science fiction stuff. I love that they're doing these open world role playing games. Like, I love that. And they're doing sports like this. I have to work here.
+
+SPEAKER A
+And you loved it.
+
+SPEAKER B
+I loved it, yeah. So when I came in, it had just come out and they were doing the CD Rom version. So CD ROMs aren't even out yet.
+
+SPEAKER A
+Oh, it used to be floppy disks. That's probably one of what was we.
+
+SPEAKER B
+Would burn them in the basement. We had the disc replicators.
+
+SPEAKER A
+Right. So arena was not released on floppy.
+
+SPEAKER B
+It was yeah, I believe it's six floppy disks.
+
+SPEAKER A
+Six floppy disks.
+
+SPEAKER B
+Maybe it was eight.
+
+SPEAKER A
+Yeah.
+
+SPEAKER B
+But in those days, the number of floppy disks was very, very important to what the money were making. So, you know, if you wanted to do a big, huge game like, well, that's just too many disks. So the CDROM became this jumping off point for the whole industry where, oh, it's unlimited data.
+
+SPEAKER A
+By the way, I played arena. So that was, of course, attained legally. Although one does alternate means by alternate means, unflappy disks. And that was such an incredible as you probably have seen interacted with a large number of people. It's a whole world. It's a world that you escape to in the way, like your favorite book, like Lord of the Rings. It was unlike anything else. It was incredible. Of course, as people say, the first game you play is the one that really sentimentally means the most to you. I think the first role playing game I played and it was just changed.
+
+SPEAKER B
+Everything was arena.
+
+SPEAKER A
+It was arena. Yeah. I think Dagger Fall is what I really kind of really played, especially because you said the character development was really rich. But just like that, you can feel like you travel to this whole other world that's less about entertainment, like a shooting game, and more about a world. It felt like it's a world like you're literally there. You can travel there, you can live there. You actually feel like that person versus like a pacman, like an arcade, fun, entertaining, adventure game. What did you work on first there?
+
+SPEAKER B
+Well, everyone did a bunch of stuff. So I worked on the basketball game, really, just to get it out the door. And terminator future shock. So we were doing Future Shock and Daggerfall at the same time they were developing a new engine. So it was one of the first 3D engines, the X engine. There were a bunch of guys from Denmark, actually. There was like a big Danish demo scene in those days in the PC. And so a bunch of the top programmers there, look, this is not big. This is not a big company. Maybe there's 20 people in development. And we were doing both Dagger Fall and the new Terminator. And so Dagger Fall was a bit more, again, behind the Terminator game. So I was one of the main people on the Terminator team. And I don't know, things kind of worked out. I don't know why. I quickly became the producer and I was making levels and doing all these things, and it was awesome. And looking back now, I can understand it better. But at the time, I didn't appreciate it, which is no one quite owned the Terminator license. It was in like, this limbo legally. So there was no one to tell us what to like. No, you can't do that. So we would pick apart the movies and how does he mention the gun he wants and the wattage of the laser and all these things? And so Future Shock is a game that I still love today. It does a lot of things that if you go back and look at it, we're frankly still doing. It's a large open world, post apocalyptic landscape height map with instanced objects all over it. And that is still a lot of how we build our worlds.
+
+SPEAKER A
+What's an instanced object?
+
+SPEAKER B
+Some games, every wall or building is kind of unique in its data, whereas we would just build these little husks of buildings and then place them all over the place. So the memory and the way you render it is much more optimal.
+
+SPEAKER A
+So that allows you to build a bigger world.
+
+SPEAKER B
+It allows you to build a bigger world much faster. And not every single version of that building isn't its own unique architecture that is going to take up memory and processing speed, et cetera.
+
+SPEAKER A
+So you're there very much feeling the computational constraints of the system when you're creating these open worlds.
+
+SPEAKER B
+And you know what? That's the thing. Then you see some of it now. But in those times, I do feel like every year the technology moved. And maybe it's because same thing we're like that my age at that time where every year somebody was coming up with some new method or some new game system. And it was every year that innovation, innovation, innovation. And then 3D acceleration comes along and then these things come along and then HD comes along. And it is true that as time goes on, there is visually a diminishing return in terms of what you're able to do on the screen. And there's a ton of work that goes into it now because just rendering this cup to the perfect shine and material and roughness and how does the global illumination off this wallet? It's a ton of work, but you can pretty much do what you want now if you want to put the time in. Whereas then, okay, you can't do everything you want. So pick your battles really carefully and technically, you couldn't do what you want, if that makes sense.
+
+SPEAKER A
+How much trade off is there now in how much effort you put into the realism of the graphics versus the story? And actually not even how much effort you put in, but is there a trade off in the experience, the feel of the game in terms of realism and story?
+
+SPEAKER B
+Usually we will start with let the player have as much agency and do as many things as they can as possible. And we will sacrifice some graphic fidelity for that, some speed for that. We could make a game that traditionally our games are we okay with 30 frames a second, as long as it looks really good, and the simulations running and all of those things. So we'll sacrifice some of that fidelity for the player experience and the kind of things that I do. But from like a manpower standpoint, the graphics programmers work on graphics, the artists work on art. And we have an awesome team of artists and designers and writers and programmers. It's usually where we find, as time goes on, the amount of art time that it takes to create a cup compared to what it used to be, that has increased. So we do use, like most people use art outsourcing as well, so that we're not we still relatively compared to our industry and what we're doing, have smaller teams.
+
+SPEAKER A
+What about the experience of the beauty of the graphics? So, like, one of the most amazing things about Skyrim, and maybe you could say that about some of the other games, but for me, Skyrim is the outdoor. When you step outside, it's the outdoor scenery. So what does it take to create the feeling, especially of that being outdoors of nature and just like, lost in the beauty, whatever it is, when you go hiking and you feel the awe of it, how do you create. That awe is that graphics? What is that?
+
+SPEAKER B
+It's a lot of graphics. It's a lot of mood. We just talk about it in terms of tone. And those are again, going back to my previous comment, the graphics are very, very important to us. And we always push them because when you're doing the kind of things we do, where you step into a virtual world, it does to have to have that moment of, wow, this feels real. I've never experienced this. And I think it's okay to let just like the time settle. Meaning you step out. How does the wind sound? How are the trees moving? How are the clouds moving? I enjoy strolling and watching the sunset. How does it land over the water? It doesn't have to be like, hey, let's go. Let's finish a quest. Let's go kill things. Let's figure out the next step. Let's level up. I like the quiet moments a lot. And I think when you play our games, you can tell we spend a lot of time on them. Then you watch the weather roll in. I think that's just part of being that character, being that person in that space.
+
+SPEAKER A
+Yeah, I saw that. There's a mod that removes all enemies. I've been meaning to do that. To just do like a live stream where for hours walk around Skyrim and then answer questions and so on. That just feels that's a completely stress free environment. It's just you are just like you said in this moment in time. And it's so incredible. It feels as incredible as going hiking or something like that, but in another totally different place, like Iceland or something like that. This whole other surreal, ethereal place. Yeah, it's incredible how you kind of create that. So, graphics is a part of that, but also letting it the temporal aspect of that, like the wind, the rustling and look and all of that, the.
+
+SPEAKER B
+Soundscape is really important in the sky. We spend a lot of time on the sky because it's taking up much more of the screen than a lot of people give credit for.
+
+SPEAKER A
+What about the rendering, the openness of it?
+
+SPEAKER B
+It's a lot of level of detail streaming work. And nowadays it's getting more common. Like, frankly, the systems are built better for it. Hard drive speed is really prioritized. Like, they're so blazing fast. You take skyrim and oblivion and the fallouts of that 360 era. There was a lot of time spent on how do we get all this data streaming in as you move and then levels of detail so you can see all the way but not crush the processor.
+
+SPEAKER A
+You know what? Let's even step back. As you mentioned tone. You mentioned tone a lot. What do you mean by tone?
+
+SPEAKER B
+It's all of it together. If you look at I think you can flip through let's just take fantasy. You can sort of look at a couple of images or things and know, how does Lord of the Rings different from Game of Thrones that is different than a thurian like Excalibur or your Sci-fi Channel series of the month kind of thing? And so finding that what's going to make it kind of unique. And usually I lean on something that is grounded in reality for what it is and then have lesser kind of fantastical things, at least at the start, and then they kind of build. So even when we do Star Field, it's a science fiction game. There are laser guns and spaceships that fly around and shoot each other and blah, blah, blah, blah. But it's grounded in you can look at it and say, okay, this is kind of an extension of things as we view them today in space. And we sort of take the same approach with Fallout, where admittedly, things can get admittedly, things can get even a little bit crazier the longer you're developing Fallout content.
+
+SPEAKER A
+So just to linger on this, defining the tone starts at creating a realistic experience. Like, you feel like, I could walk into this and this feels like life.
+
+SPEAKER B
+What's their technology level like, even for a fantasy world like this magic? How prevalent is it? Or are they making weapons and things and armor? Is it for utility? Is it for decoration? How do they live their lives? Does this feel like a place that you believe that has some grounding in our reality, whether that's historical or near future, or that it's grounded in some semblance of the reality that you and I understand so that it can feel it's also making it feel a little bit welcoming, like, okay, I understand this.
+
+SPEAKER A
+Is that art or science? How do you know when it feels welcoming and everything fits in his ground?
+
+SPEAKER B
+I guess it's personal taste. Some people like things that are weirder, that have more fantastical from the get go. Even a game like Morrowinds, where we get into some more fantastical things, it intentionally starts a little more grounded. There's a very classic committee of a looking town that you come into, but you look just beyond it, or mushroom trees and giant insects and things like that.
+
+SPEAKER A
+So in Skyrim, when you put a dragon in it, what are your thoughts about dragons and tone? How does that fit into tone?
+
+SPEAKER B
+It's a great question.
+
+SPEAKER A
+It's a ridiculous question, but yeah, I just love dragons. I want to bring it up.
+
+SPEAKER B
+No, these are the things that we debate with.
+
+SPEAKER A
+Do we include a dragon? Why didn't you include a dragon and dagger fall? That's what I want to know.
+
+SPEAKER B
+I think there's dragon wings. They were hard to do. Dragons are hard to do. So when you start skyrim and say, hey, look, dragons are going to be a theme, start visually, you can make the argument that dragons existed, okay, what would they look like? How close to dinosaurs would they be? And ours are less I believe they're less fantastical looking in general. They look like beasts that could exist in that world. And then how we introduce them, it's kind of a little bit of a slow role in Skyrim and that the people in the world are reacting to the dragons appearing. And that somewhat mirrors you want something that mirrors the player experience as well. It says back to you, like, hey, no, have you heard this? Someone's all dragon.
+
+SPEAKER A
+That's what dagger fall. Isn't there mentions of dragons or something? Because I remember being sure that there's dragons in Daggerfall as I'm playing it and I'm searching pretty sure. Well, is there a dragon Daggerfall?
+
+SPEAKER B
+There's dragon wings in Daggerfall. I guess someone will probably correct me, like, actually there is a dragon here, but I'm pretty sure they're not. And then game I did Red Guard, which we bring back a drag. It takes place beforehand. So we have a dragon there in that game. And that was unique to that at the time.
+
+SPEAKER A
+Yeah, just a brief tangent on that. I thought Red Guard was a really good game. I played it again, you forget stuff, but I remember getting I guess it was the first in the Elder Scrolls series to put it into that world. But it was like an adventure game. It reminded me of another game I really love, like Prince of Persia.
+
+SPEAKER B
+That was one of the inspirations. Prince of Persia is one of my favorite games.
+
+SPEAKER A
+I apologize if I'm forgetting, but you can, like, jump in buildings and stuff. Like there's a dynamic airy nature. Like it's like park situation. Yeah, it was an incredible game. Why do you think sort of a dark question. Why do you think that game was a flop?
+
+SPEAKER B
+It's not a dark question. It was, well, a lot of reasons. Game that I love and really got us going on a handcrafted world. So we're coming off a dagger fall. Morewind is sort of in design. And then part of our development teams broke up to do different things. Did Battle Spire and Redguard was my game and I wanted to do something a little more Ultima feeling. Handcrafted world. I really like things that blend up genres, so I know it's in the adventure game category, but it really does a lot of things. It's a love letter to Prince of Persia. There's a little Raiders of the Lost Dark in it. There's a lot of Ultima in it and really see what we could do with the engine. But it very much, I think, plays like it would have had a much better home on, say, PlayStation or Xbox. This predates Xbox, right? Where it's a much more constantly tomb Raider had come out, so you see those influences of Tomb Raider on that game and 3D effects cards had just come out and said, okay, we can do. And it was the last I think it's one of the last Dos games in a windows world. So I think it missed kind of a technology window as well as ultimately not what people wanted from us. And the company let me make that game, and it was a big flop. Battle spire hadn't done well. The company was in really bad shape, and I felt really, like, personally responsible. Like they let me do this creative thing. It didn't do what we needed it to do and now we're in a very, very bad situation. Company almost went out of business, and that's when it got reformed with ZeniMax Media. And Robert Altman came in and we were starting morewind. We had just sort of started and it was sort of that whole experience that made you sort of realize someone says, okay, you're going to get another shot. And that's where you're like, okay, we're going to make more Wind and make the biggest, best RPG we can make. We know what the audience wants from us. We know what we could do. Building a world so there's like callbacks to how we built the world in Red Guard. Morrowind is a large scale handcrafted, but if you were to put it pixel per pixel with Daggerfall, you wouldn't even see Morrowind because Daggerfall is so big. But the impact of playing it, I think, is in many ways equal, but different.
+
+SPEAKER A
+Just you personally, psychologically, did you have doubt about yourself from from the performance of Redguard? Like, do I even do I know what it is?
+
+SPEAKER B
+Of course. Of course.
+
+SPEAKER A
+Where where do you get the how do you overcome that?
+
+SPEAKER B
+I don't know. I would say this honestly, I enjoy it so much, I'm so heads down that becomes better or worse, like my life. And it's just something that I want to play so much. It becomes like there's a little bit you get a little obsessed with it.
+
+SPEAKER A
+No, but I mean, you love Redguard, right? So doesn't that mean isn't there a kind of self doubt about do I know what it takes to create a great game?
+
+SPEAKER B
+Well, no, I think reggae is a great game.
+
+SPEAKER A
+Right. So you were sure, even if it.
+
+SPEAKER B
+Was a specific debate, like, do I like that game? It's about finding an art. Okay, so I love Red Guard and the people who play it. It won a bunch of awards and it critically was a pretty good game, did not sell. And the reason for that, again, we probably made the wrong type of game and we missed the technology window. We also thought it was very conservative. We're going to do this. So my main takeaway was, I'm not going to be conservative again. I'm going to swing for the fences and there'll be some rough edges in swinging for the fences and shooting for the moon. We'd rather do that and land where we land than be very, very conservative in what we're putting out there.
+
+SPEAKER A
+You mentioned just referencing this game on the Reddit AMA that a long time ago during Red Guard, the lead programmer made all the buildings hop up and down after you played for ten minutes just to mess with me. Just curious, tangent, what's involved with programming an open world game? We will talk about design and so on, but specifically the programming, because I think this question came from what are some interesting sticky bugs that you've encountered throughout your life in creating these games? And this is one of them that you mentioned. So what are some of the challenges of programming these open world games?
+
+SPEAKER B
+There are different flavors of them, right? Your GTAs will have different issues than the Ubisoft games versus our games. I can sort of speak to ours, which is you want to build systems because they're going to play the game for a very long time as well, which we've learned. And you can't go through and touch everything by hand per se. So you have to rely on some systemic level of creation and a lot of systems that are robust enough so that when they touch another one, things aren't breaking apart.
+
+SPEAKER A
+What are the major systems? Is there like, the physics of the game, the engine of how like, stuff, the physics, the motion and maybe how light is rendered and all that kind of stuff, right?
+
+SPEAKER B
+So you have the rendering of like, okay, this is how I'm going to render the data that I have. A lot of people confuse engines with rendering. They're combined, obviously, but there's the data you're going to give to a renderer, which is the thing that draws the pixels on the screen. So most of the engine is how are you going to bring in that data and give it to the renderer to draw it? So you have that whole system of walking through the world, feeding in the data and drawing it. You then obviously have the physics and the interactivity. What are the things that are there just to be drawn and what are the things there that are meant to be interacted with and touched? We put a big premium on the ones that can be interacted with and touched, whether it's flowers, whether the trees move, whether you can sleep on the sofa, sit in this chair, pick up all this stuff, bake bread, blah, blah, blah. You then have the AI, which loops in the stuff we talked about earlier in terms of processing everybody and combat systems, which is a lot of what people end up doing. Combat systems on top of that AI, how do they react to those types of things, and then how do they look at the things that can be interacted with? One of my favorite things is when NPCs will go pick up weapons in the world, but you don't see in other games the first time you see it in one of ours. It's like very unexpected. You can drop like a crazy weapon, be in a fight and an NPC runs over, picks it up and uses it on you. It's not something you would expect, but I love that stuff.
+
+SPEAKER A
+And that's integrated into a larger system. The ability to pick up the NPC, picking up so it's not like a little quirk that's hard coded in. It's part of a bigger system.
+
+SPEAKER B
+They they have their own AI for scanning the environment and that's one of the rules. Hey, is there a weapon that is better than the one I have? I'm going to go get it now. We do lock off if it's in a chest. And that's treasure we left for the player, but it's in particular because you don't want we actually have this problem started in oblivion, I believe, which is separate level. Hey, let the enemies go pick up the, you know, weapons if they're better. So they make a level and go in and all of the enemies are armed with the teeth and there's no treasure for the player because the enemies went and took all the good weapons. Okay, they don't take those. They take the ones that are dropped by other NPCs or the player.
+
+SPEAKER A
+That's a fascinating world of designing the experience for the NPC because in part that experience defines the experience of the player. So how they interact with their environment defines how the player experiences their environment. Is there a room for further and further development of the AI that controls the NPC?
+
+SPEAKER B
+Sure. We're always iterating on it. And again, as we look in the future, it's more about us finding those more reactivity to the player and also understanding their roles in the world. So they're not just there for the player as a signpost for the player.
+
+SPEAKER A
+But they're reacting to the player. But what about some of the richest experiences we have with people? Is like the chaos of it, the push and pull, the unpredictability. Is there something I don't know if you've been following, but the quick, amazing development of language models, the neural network, natural language processing systems, dialogue systems. Do you think there is some possibility of using these incredible neural nets that can have open ended dialogue, basically chatbots?
+
+SPEAKER B
+Yes, I've seen some incredible demos. I do think it's coming. I don't know when. And there's a little bit of a question like what's ready for real deployment and release? Versus, hey, let's use that to generate some things. That is then static that we're giving to the players versus it's generated on the fly, but it's definitely coming. Definitely coming. And I think you'll see it in the types of games that we do. It has great application.
+
+SPEAKER A
+I love the idea that you'd be using that to design different NPCs and then testing if they're good enough, if they're like a little too crazy. You don't want the super.
+
+SPEAKER B
+Right? But if we go back to it being reactive, some of that bot stuff, it's incredible. It's then translating that into voice, and then is that being done by the client? Is it being done on a server? Is it baked into the game? There's, like, different flavors of it, so.
+
+SPEAKER A
+There'S still computational challenges. Like, how do you actually make that happen?
+
+SPEAKER B
+Right.
+
+SPEAKER A
+Well, what about in terms of creating the feeling of an NPC? What's the role of voice actors?
+
+SPEAKER B
+Awesome. Yeah, we work with a ton of voice actors, and they bring so much to it. And that's the thing. We can write some stuff, and the best ones get in there and make it so much better or even adlib things. And so we do a lot of voice recording, and we used to do it kind of like at the end of the project, and now we do it throughout. We start really early, and we just start recording. So we're recording for years and years, literally, probably three years, four years.
+
+SPEAKER A
+So part of the actual experience of the recording will help define the characters and the tone of the game.
+
+SPEAKER B
+And we'll go back sometimes and, hey, we really like this. We want more of this. Let's write, let's do another session, or, hey, we don't think this character is actually working. We want you to do you're going to be someone else now. Sorry, that got cut.
+
+SPEAKER A
+Do you ever try to sort of imagine that people fall in love with the characters, with the NPCs?
+
+SPEAKER B
+I do.
+
+SPEAKER A
+Do they get really attached to the.
+
+SPEAKER B
+Yeah, I mean, I've done it in games.
+
+SPEAKER A
+These are like close friends, right? You miss them 100%, actually.
+
+SPEAKER B
+Like, whenever I'm playing a game, and if there's like, a friendship option or make friends or a romance thing, I find those moments really I enjoy them. I find them pretty impactful emotionally to what we're doing. And so we've done a little bit of it. It's one of the things that we actually have pushed in Starfield. So we have a number of companions, but for them we go I won't say super complex romantic, but more complex relationships than we've had in terms of not just some state of they like you or they don't like. You, but they can be in love with you and dislike something you did and be pissed at you temporarily and then come back to loving you.
+
+SPEAKER A
+So that relationship status, if it's complicated, they're existing in that gray area. It's complicated. We're not dating. We're just well, it's in a lot.
+
+SPEAKER B
+Of games, previous stuff, you just work your way up. They like you more and more and more and more, and now you're in a relationship. Now you're in and when you make them upset, you drift out of like it never happened. You drift out of it. Whereas we wanted one where, okay, we can be in a relationship and we've committed to each other in some way, but I just did something that really made you angry and as opposed to just drifting out of that status. You're in a temporary I don't like what you did state.
+
+SPEAKER A
+So some greater degree of complexity in the relationship with a companion a little bit.
+
+SPEAKER B
+I don't want to oversell that part. But my point is, I think those things where you meet a character in a game and you do spend time with them, a companion in a game, and it leads to romance. Myself and others and I find a lot of players, those moments are really impactful and special to them because they did put in the time. That's another thing that I always come at it with, which is people don't play video games. They sometimes think like, that's a waste of time. And that's not real. That's not like you're not getting a lot out of that. Well, you haven't really experienced it in the way that you can. Because these moments that I spent in games, not the ones I made, other ones when I was growing up or even now, that is important time to me. I love those moments. I felt really proud of what I accomplished. And we want people to have that in our games. And the fact that they have had those experiences and we hear from them and how important it is to them, it's like, no, this is really, really special.
+
+SPEAKER A
+Yeah. From a game design perspective, I wonder if you can honor the time you spent together with the game. Because sometimes there's a heartbreak at the end of the game. When you leave a game, it's a really complicated relationship. Actually, when you leave a game, it's almost like leaving a romantic partner because you spent so much meaningful time together. And there's a sense in which it was ephemeral.
+
+SPEAKER B
+It didn't happen.
+
+SPEAKER A
+Yeah, it didn't really happen. It was good. It was like you went to Vegas, you got drunk and stuff and now life goes on. I wonder if there's a way to sort of always carry that with you. I guess with words you can kind of share with others.
+
+SPEAKER B
+Like, it's weird now that we're in the age where you have achievements and you can look at your library and see your hours and games. It's almost like a scrapbook now. One of my wishes was like, I wish I had that achievement list for everything. Like back to the late 70s.
+
+SPEAKER A
+Like, every game you play.
+
+SPEAKER B
+Right.
+
+SPEAKER A
+That's one of the cool things. With Xbox, we're moving towards that direction. It'd be cool to be from, like, childhood. The first time you play video game, it will actually tell you what is the first game.
+
+SPEAKER B
+You you. But know what? Kids today, they will have that.
+
+SPEAKER A
+They will have that. And see, you could look back and.
+
+SPEAKER B
+See, oh, my God, I put 1000 hours in diagnostic. What is the first and my last save was?
+
+SPEAKER A
+Last save, man, I don't know. Golden Axe? Maybe. I'm trying to think what was the first game I ever played? No, it's probably coming to 64 games. Yeah, arcade games.
+
+SPEAKER B
+Okay.
+
+SPEAKER A
+You mentioned Starfield. What is starfield? And what's the origin story of this game?
+
+SPEAKER B
+We had always wanted to do something where you explore space, the explore space role playing game. So take the kind of games that we make and give it a little bit of a different spin. And the other games that I love, there was a Pen and Paper RPG. I love Traveler. It was one of the first games I made for the Apple Two. I never finished it right. I'm just doing it on my own. And I love this game. Starflight was one. Star Control Two was a game that I loved. Sundog was a big one in the Apple Two days that a lot of people don't know that I loved. And so a lot of us in the studio felt it was time to do something new. We're going between Elder Scrolls and Fallout and going back and forth. We love that. But, hey, we've always wanted to do this explore the galaxy science fiction game. Now is the time to do that.
+
+SPEAKER A
+And that's a brave move. So Fallout is post apocalyptic on a single planet. Elder scroll series is on a single planet. So this is going out into the open world of many star systems, many planets. I saw that. It's thinking about 100 star systems and a thousand planets available to explore. What is that world of stars and planets like?
+
+SPEAKER B
+Well, you mentioned Daggerfall. We go back to some of that. Well, the first one we did, it was, how are we going to render a planet? Like, pull it off for the player? Can we or do we have to sort of do it where you can't land on all of them, where you're landing in a very controlled, small world space that we kind of craft, and you would have a very limited set of those. If you go back to tone, like, well, that's probably the wrong tone, and how can we say, yes, I want to land on that ice ball. So we started the game right after Fallout Four. So 2016. And the first thing we did was, how can we have a system to generate these planets and make them look, I'll say reasonable, as opposed to fractally goop.
+
+SPEAKER A
+What's the technical definition of goop? fractally goop.
+
+SPEAKER B
+Fractally goop. You've probably seen a lot of simulations, whether they're space things or landscape things, where using fractals and just the landscape does not look real. Just like highs and lows and it's muddy. And so we did find a way. We came up with a way had prototyped of building tiles, like large tiles of landscape, the way we would usually build them. We kind of generate them offline hand, do some things, and end up with these very realistic looking tiles of landscape. And then built a system that wraps those around a planet and blends them all together and we had pretty successful results with that. We thought, yeah, we could do this. And so there was a big design kind of problem to solve in terms of, well, what's fun about landing on a planet where there's potentially nothing because there's a lot of planets and moons if you kind of write in reality that, well, there's nothing on them except resources. And so we spend a lot of time figuring out, okay, let's just lean in on that. Can a be a lonely experience? As long as we tell the player, here's what's there, here are the resources that are there. Go find them. But I equate it to that moment, as we said, about listening to the window and watching the sunset. And I do think there's a certain beauty to landing on a strange planet, being somewhat the only person there building an outpost. And we are modeling all of the systems because that's how we like to do things. So you can watch whatever that gas giant or moon, it will rotate and go and sunrise, sunset, and all of those things that you would expect, and it's all really happening. And most people probably won't notice or appreciate all of that, but I think it gives them the ability to say, I want to go do that and see that on that place. As long as we tell them, hey, the quest leads over here. Here's where the handcrafted content is that you would expect. And then here's more of the open procedural planet experience. Long answer. I don't know if I answered your question.
+
+SPEAKER A
+Is stupid. And the answers, that's how this works. So this is the world's most immense simulator of the human condition of loneliness. Because I can't imagine a more lonely experience.
+
+SPEAKER B
+I mean, you put it that way. I don't know that was the goal.
+
+SPEAKER A
+But just on a planet alone, that must be a deep embodiment of what loneliness is like. Both on, like when you hike alone, there is a deep loneliness to that. It's like it's humbling that this thing will last much longer than you. It's been here way before you.
+
+SPEAKER B
+Is it the line from the moon landing? Beautiful desolation?
+
+SPEAKER A
+Is it beautiful desolation? Is that what you said?
+
+SPEAKER B
+I think so.
+
+SPEAKER A
+Beautiful desolation?
+
+SPEAKER B
+Well, something like that.
+
+SPEAKER A
+But that's just words. There's a feeling to it, and you want that feeling to be real. There's some resources here. I just feel like it will hit people a certain moment, like it does for me with Skyrim. Like, holy shit, I'm here alone, and whatever cruel nature that's out there doesn't really care about me.
+
+SPEAKER B
+Exactly.
+
+SPEAKER A
+That's the experience. You want to create the whole planet, and you want to have many of them.
+
+SPEAKER B
+We do have many, but once you build that system, I think the numbers become honestly a little bit. We wrap it in so we can name them all and have a finite set, even though it's a very. Large number, but a set that we can validate and know about even though it's a huge number. But once you're building a system that can build a planet I mean, a planet is sort of infinite space. We go back to the Daggerfall analogy, right? If you have systems to build that much space, doing 100 plants or 1000 or 10,000 or a million planets, you just change the number and press the button. But you can't name them all. You can't control, like when you're getting in really big numbers. Hey, what does the system way out here feel like? If you take your ship and jump that far? We do level the system. So when you go to system, you'll see, oh, this is like a level 40 system. And us being able to at least control that scale is how we kind of ended up with the 100 ish systems we have.
+
+SPEAKER A
+What are the levelings? What do you mean by levels?
+
+SPEAKER B
+Like, when you look at a map in a game, it says, this is the area for low level players. This is level one. Yeah. So we do that on a system basis. Star system.
+
+SPEAKER A
+I read that space travel is considered dangerous in this game.
+
+SPEAKER B
+Can you explain that goes back to a tone thing, right. When you actually play the game. Because it's a game, we don't really kill you when you fly out into space, but it has a tone of there's some effort involved. And we've dialed it back as we've been making the game. Whereas we used to run out of fuel. You jump and get stranded, which on paper was a great like it's a great moment when you get stranded and you have to press this beacon and you don't know who's going to come. Turns out it just stops your game. We found you'll be playing the game and I ran out of fuel. Okay. I guess I'll just wander these planets trying to mine for fuel so I can get back to what I was doing.
+
+SPEAKER A
+It's a fun killer that's too realistic of a simulation of the human condition.
+
+SPEAKER B
+Yeah, the idea was, well, games do that. If you had like a hardcore you're right. A hard core survival mode, it's the kind of thing you would do. Maybe we'll do it in the future, but it's more of like a tone. How they build their ships? Do they have all the right things for safety? We do get into environmental things on the planets. In your spacesuit. Obviously, there are a lot of different spacesuits and buffs for the gases or the toxicity or the temperature on various planets.
+
+SPEAKER A
+Are there robots? Yes, those companions. Are they robots by chance?
+
+SPEAKER B
+One of the companions, the robot Vasco, yeah.
+
+SPEAKER A
+Okay. So they have a name and a personality and so on.
+
+SPEAKER B
+Vasco does. And then there's a whole bunch of I call them generic robots. We use them for utility. Okay. We actually dialed them back. Because if you think about well, you know a lot about this more than me.
+
+SPEAKER A
+In terms of I'm offended right now. You're calling robots generic?
+
+SPEAKER B
+No, the ones we use. The ones we use, we made them more generic.
+
+SPEAKER A
+We didn't sensitive.
+
+SPEAKER B
+I understand. If you were to chart the future, you would say robots would have a much bigger role in our future than we are presenting. But that was the tone thing. So most of our robots are there as utility robots, and there are some combat ones as well as enemies.
+
+SPEAKER A
+So it's a deeply human world.
+
+SPEAKER B
+Very much, yes.
+
+SPEAKER A
+In terms of tone. Have you talked to Elan about this game?
+
+SPEAKER B
+A little bit.
+
+SPEAKER A
+How much of reality, like, the work of SpaceX is an inspiration for the decisions made in this game?
+
+SPEAKER B
+I wouldn't say it's for the decisions we made, but visiting SpaceX and walking in there, it was like the Avengers, meech, NASA, it's like the most amazing. And here we're building the next gen. Like, see the dragon stuff before it was other people saw it. I was really in awe. This giant machine that looks for imperfections on the surface of these giant fuselage because we're in DC. Go to the Air and Space Museum a lot. And so whenever I look at those kind of things or you'll visit the space shuttle, sort of overcome with how big it is, and I go stand back by the engines and think about that thing leaving orbit. And one of the things that Elon really impresses, like, we're reaching the edge of physics on the stuff where how hard it is to leave orbit, the gravitational pull. So the engineering that has gone into that, our space program. What he's doing now, I just marvel at I don't understand. I'm not at that level, but I marvel at the kind of human ingenuity and scale. I was on the Delaware coast last month, and I was outside. For some reason, it was dark, and I saw this crazy light in the sky, and I thought it was like a helicopter. And then it didn't go away. And, like, someone what is that? Some friends. Hey, does everybody see this? What is that? And we just stood dumbfounded, looking at this thing in the sky. And like, dad is a UFO. Nobody takes their phone out. Everyone I'm with, like, four people. Everyone is too dumbstruck. You would think, Why don't you take a picture of this thing? And the next day, we found out it was in the news. It was the SpaceX launch in Florida, and I'm seeing it from Delaware Maryland area. It was incredible. It's just even just that I am in complete off.
+
+SPEAKER A
+Is there some aspect of that that you can replicate? The majestic nature of that in the video game?
+
+SPEAKER B
+I wish I had the answer to that. I think some of it we were doing. When you're standing on a planet and you see the other moons go by and then you realize I could get my ship blast off and land there and build myself a home. I think that's pretty cool. There's a minor thing we do which is we have other ships come and go from the star ports when you're there. So you'll be in a city and then you hear this. When you hear the engine, you look up and a ship is taken off or coming out.
+
+SPEAKER A
+That's great.
+
+SPEAKER B
+There's nothing for you to do, but I think it's awesome.
+
+SPEAKER A
+Yeah. And then that's all about creating the soundscape to feel, seeing it and like, oh, that's real.
+
+SPEAKER B
+That's a ship where you jump into a system and you see these freighters and sometimes they contact you. It's not all just like jump in in combat.
+
+SPEAKER A
+Do you ever think about the fact that science fiction seems to make it has a way of creating reality, not just kind of predicting it or imagining it? It's almost like the thing you put out there with a video game like this, like Starfield that you kind of anticipate. It kind of fuels people's imagination of what is possible.
+
+SPEAKER B
+Maybe. I don't know. I don't know. I can't say. You're making me think now about other science fiction. That movie I love, Minority Report, it's more of like not a space movie, but more like looking at the future. If you look at a lot of the things in that movie, it's almost like I think those are coming true.
+
+SPEAKER A
+Yeah. I mean, is that the one you do interface, the interfaces and then he.
+
+SPEAKER B
+Looks at his child's more like a holographic, almost AR VR kind of thing, or digital billboards or trying to predict human behavior. There's just a lot of future stuff in that movie. As it comes to Sci-Fi, to your other question, I don't know.
+
+SPEAKER A
+Well, I think it does, and it's interesting. I suppose you're trying to create the most realistic stick into the tone, the most immersive realistic world, and almost by accident you create the thing that is possible because you want it to be realistic in some deep sense. So accidentally it can become the possible. And then that places that idea in people's heads. I mean, if humans are ever to become a multiplanetary species, we need to play games. We need to read Sci-Fi to help imagine that that's possible, to look outside of Earth, to look outside, look up on the stars. Then we can actually travel out there. I don't know. There's power to Sci-Fi to do that. I guess you shouldn't feel the pressure of that.
+
+SPEAKER B
+I don't know if I'd make the leap now that's all that what we're doing might now maybe hopefully it might inspire some young people who are headed in that direction, are like, oh, I thought about getting into space and space exploration and being an engineer, doing these things. And I played this game and it really sparked that interest in me. So I'm going to go take that as a field and maybe that's the person who goes and does some of these things.
+
+SPEAKER A
+Yeah, because in the next couple of decades, likely a human being will step foot on Mars, which are the first steps towards us becoming multi planetary.
+
+SPEAKER B
+And then if you read some of the stuff they're doing with the James Webb telescope, and them being able to look for signs of life on other planets is quite fascinating. And recent stuff I read say they think in 20 years they will. So it's actually quite encouraging to think a dream of mine, like in our lifetimes, that we discover life on another planet.
+
+SPEAKER A
+Yeah, especially if it's intelligent life. I've been talking to a lot of biologists and a lot of folks. I imagine there's life everywhere out there.
+
+SPEAKER B
+The numbers would say so, yes.
+
+SPEAKER A
+The challenging question is what it looks like and how much of it is intelligent. So a lot of biologists tell me the big difficult leap is from the Procariats to the Eukaryotes. So like the complex life, it could be that a lot of our universe is just filled with bacteria.
+
+SPEAKER B
+I believe, if I'm understanding it right, that there's two ways they're going to look at planets. When they can look at they can read this planet has this kind of gas. They can now look at the ones that are created by potential life forms and then the ones that are created the byproducts of industry. There's only certain ones that are created if you have a society there and that they can start looking on these types of these types of star systems and these planets. But it takes a lot of time because you have to book time on that telescope. You have to look at that planet over a long period of time. But in theory, given enough time, given the amount of space out there, we would find one.
+
+SPEAKER A
+That would be a cool thing in this short life of ours to find out definitively that there is an industrial intelligent civilization out there before you contact them. So die, end your life not knowing the rest of the story, but just know that it's out there. That's cool. And then if you have kids, be like, well, this one's on you. F this amount.
+
+SPEAKER B
+And I'm fascinated by what it would do to the way I think in a positive way, the way humanity thinks about itself here. No, there is definitely other life out there.
+
+SPEAKER A
+I mean, both things. If there isn't life out there, that's also a huge responsibility. Both are super exciting for a loan. It's super exciting because there's a responsibility to preserve whatever special thing we have going on here. Whether you call it the flame of consciousness or whether it's consciousness or intelligence, that's a special thing. Preserve it, have it expand. But if there's others out there that sparks that drive for exploration of reaching out into the stars and meeting them. Most of them probably want to kill.
+
+SPEAKER B
+Us.
+
+SPEAKER A
+But luckily we have the military industrial complex on Earth that builds bigger and better weapons all the time. Space Force. It will both protect us and destroy all our enemies. This is 100% a video game we're living in. Okay. Back to Dragons. So blink once if you know when Elder Scrolls Six is coming out but are not going to tell me.
+
+SPEAKER B
+I have a vague idea.
+
+SPEAKER A
+Okay, vague idea. If you have the quantum mechanical interpretation that allows for multiple universes in the universe where you didn't blink, what would that todd tell me about the year that's coming up? Would it be 2025? Trick question or 26?
+
+SPEAKER B
+I asked that question many ways, but never like that.
+
+SPEAKER A
+Yeah, I thought I would try to speak. There is, of course, no answer because.
+
+SPEAKER B
+I wish it was soon. We want them out too, and I wish they didn't take as long as they did, but they do. And look, if I could go back in time, would never have been my plan to wait as long as it's taken for it.
+
+SPEAKER A
+So you love that world, the Elder Scrolls world?
+
+SPEAKER B
+Well, look, it's part of who I've spent more time there than anything else in my life, probably, right? So deeply love it. We all do. It's a part of us. And when you are doing it for a while, you really do miss it. And when I look at what we're doing, have planned for that game and I was in a meeting yesterday, it's like, I just want to play all this right, but we're going to make sure we do it right for everybody. And we do have to approach it. People are playing games for a long time. Skyrim is eleven years old still, probably our most played game. And so we don't see it slowing down. And people will probably be playing it ten years from now also. So you have to think about, okay, people are going to play the next Elder Scrolls game for decade, two decades. And that does change the way you think about how you architect it from the get go.
+
+SPEAKER A
+What are some elements that change the way? Like how do you make a game that's playable for 20 years?
+
+SPEAKER B
+We're trying to figure that out, but.
+
+SPEAKER A
+There are some elements I should pause on. That part of me, of course, asking, jokingly, I'm excited for it. But I think Skyrim is an amazing game still. I really enjoy it still.
+
+SPEAKER B
+Yeah. And you know what, the content, even if you step away from it for a while, then play what I'll put, say, the vanilla version without mods. If you go and haven't played it in a while, there's always a new way to play it. But then if you look at the mods and what creators are doing to it, we think that is just awesome. It's something that we've always supported, we're going to keep supporting. We've hired a large number of modders that are now professionals. We want to support the people who are doing on their own so they can be professionals on their own.
+
+SPEAKER A
+How do you create a world that's modable? So you think of designing a game from the start that enables mods?
+
+SPEAKER B
+Yeah, absolutely. So it starts with us. Like everything we're doing, okay. A moderate, a content creator is going to have to do it, use our tools. Now we do clean them up for release. Because if you're like a developer in house, you can deal with some clogginess when you're putting stuff together, when you put it out for people, we do clean a lot of it up and there's still a lot, obviously a learning curve there. But we have look, we have people been doing it for 20 years with us.
+
+SPEAKER A
+What's involved with modding? I'm actually quite newbish at this, okay. And I'm almost afraid to ask if not that you explained to me. I see I will spend a very large amount of time creating mods.
+
+SPEAKER B
+Well, we have an editor you can download on Steam the creation kit for our games. And then it loads up the world and you could do something really small, change the color of the weather and it creates a little plug in file. We call it a modification to the game. And then you can run your game with that. It's on console now, the mods, not the editing. And it's just been incredible. Our community there has been amazing what they do with the games.
+
+SPEAKER A
+So a lot of it is the visuals.
+
+SPEAKER B
+A lot of people do visual things because it's the easiest thing to do first or they'll build a new space. There's some great things with like I love the Kajite follower mod for Skyrim. It's awesome. There have been quest lines. Those things just take a really long time. And so someone is going to do that. It takes them a long time. It's more than a hobby. And we're always looking at ways that we can make it like, hey, they can turn a career into it because it's just awesome.
+
+SPEAKER A
+Is there any possibility in doing a mod for some of the AI stuff?
+
+SPEAKER B
+There is, and I've seen some, but to really move it along, if they're using the tools that we already put out there. So to really move the AI along, you'd have to get in the code, which some people have figured out ways to hack in and do things with script extenders, but for the most part, really pushing it. It does take us, which is why you see when we have a new game come along, the palette that they have is there's so many more things they can do.
+
+SPEAKER A
+Well, I've built bots that play the driving games, but they do that by just taking reading the screen and doing basic? Not Basic. It's actually pretty complicated, but computer vision doing the control. But you basically assimilating the human player to do that for Skyrim or for some of the open world games that's literally you have to create AGI to be able to play those open well, maybe not. Maybe you can create a super dumb, like, just a two handed sword and just keep swinging until look, there's some.
+
+SPEAKER B
+Bot stuff out there that does it. We have some very dumb bots that we use to run through the world to test it that will deploy on a whole bunch of servers just to we do it every day. We run through every space.
+
+SPEAKER A
+We're doing Starfield and just running they're.
+
+SPEAKER B
+All well, it does it very quickly. It loads up every place in the game and runs around a little bit and then loads the next place and runs around a little bit. We're just testing, like, did a crash where's the memory growth? Get a report. Here are all the places where the frame rate wasn't up to snuff. And then we do have one that will play on its own. It's heavily scripted, but it lets us test every time we make a build, there's a bot that runs through the first one or two main quests. It'll just play it that way. We know. Do we break anything? Because you don't want to waste QA's time. Like, you guys broke it again within five minutes.
+
+SPEAKER A
+Yeah, so that's for broken stuff. I wonder if you can build a bot that estimates the quality of the experience.
+
+SPEAKER B
+Oh, my gosh. Okay, can you do that?
+
+SPEAKER A
+But just like, the number, like how boring or not boring? The boring meter.
+
+SPEAKER B
+How many times you die.
+
+SPEAKER A
+How many times you die. Death. Is death boring or exciting? That's a question. I feel like there's a balance to be struck there because you always want to be in fear of death against that.
+
+SPEAKER B
+Yeah. We have this chart at work we use which is like, if you think about any game that you've played that you've put down, it's either about a frustration, confusion, or boredom. You got to put the player right in the middle of that.
+
+SPEAKER A
+But I've sometimes put down games from frustration only to return again. Stronger Dark Souls. The challenge. That's part of it. Well, I don't know, actually, Skyrim. I'm sure there's all kinds of humans that you've interacted with about what they enjoy, but to me, I could enjoy Skyrim on any difficulty at this level. It depends. The open world nature of it is what's really compelling, not necessarily the challenge of the particular quest and so on, but I'm not sure if that's the same experience for everybody.
+
+SPEAKER B
+Do you play the survival mode? There's a survival mode in Skyrim. It was a Creation Club thing. It does, like, some hunger. It does hot and cold. It does some other systems that make it in our minds a more believable. It was actually a Creation Club thing made by an external creator who is now full time with us.
+
+SPEAKER A
+So can we actually thinking about Starfield, thinking about Elder Scroll Six, go through the full life of a video game you've created. So what does it take to take a game from the idea to find the final product? What are the different steps along the way?
+
+SPEAKER B
+Great question. Well, usually it starts with honestly lunchtime conversations with a number of us, hey, we think we want to do this. This is what it's going to be like. I mean, look, with an Elder Scrolls, you know you're going to do it. It's a matter of when you say, okay, what's the tone we're going for right where's it set. So we usually start with the world, and then we're always overlapping. So while we're making one game, as we are getting in the throes of it or wrapping it, probably by the midpoint of one game, we've had enough conversations to understand what the next one's going to be. What are the big ticket like, where's it set? What's the tone? Is there a big ticket feature or two that make it really unique? And then when we're finishing one game, we start prototyping. Sorry, before that we start concepting. So we'll do concept art, and for one reason or another, I usually have the beginning of the game worked out. I like to think about, okay, how's the game start? What's the player do first? We do music early. So take elder school six. We forgot where it's set, what's the tone, what are the big features? We discussed the beginning of the game, which we've had for a very long time.
+
+SPEAKER A
+Where is it set?
+
+SPEAKER B
+Again? In Tamriel.
+
+SPEAKER A
+Dammit. Well, at least we know we narrowed it down. That would be epic if it was like a portal into another dimension.
+
+SPEAKER B
+Anyway, then I like to do music. So we've already done a take on the music for Elder Scroll Six.
+
+SPEAKER A
+So you can sit there with the concept art and the music.
+
+SPEAKER B
+No, the music we've put in the teaser for it. This was 2018. We've taken that further, obviously. And again, we're working on the world. You're then doing concepting and design for the world. And then once we're wrapping up one game, we can really start prototyping the new one. And you're usually building kind of your initial spaces. And so we do like to do like a first playable, a smaller section of the game that we can sort of prove out and show to people, hey, this is how it feels different, this is what it looks like, this is what's unique about it. Then we turn that into a larger chunk when more of the team comes on, when the other game is done. And that's still what we call a Vs vertical slice. So you still don't have the full team on it, and it's a larger chunk of the game that you can play. And then once you feel good about that, you're going to bring on the rest of the team. And we're fortunate that the other games we've done are popular enough that we can be doing DLC and content and those kind of things while we're getting the one going. And then we're at full production, where we're sort of at maximum size, we just call that production. That's like the full production period. And that depending on the game, can run a year, two years, maybe more. And then you kind of have a finalizing, final six months to a year on a game, which is, okay, we've built everything now. And usually it needs a lot of glue where we have a lot of very different elements that maybe aren't clicking together the way you want outside of the regular polish for levels and features. And we're shaving and gluing and sticking things together so that it's not this schizophrenic game experience that things flow from one into another in terms of story.
+
+SPEAKER A
+Like on that level, usually the story.
+
+SPEAKER B
+The designers have done a really good job. It's more about game features and then how they interact with the story, or hey, I went from this experience to this experience, or picking flowers and Alchemy feels like a different game. And then how is another character referencing that and how is that intersecting with the skill system and the interface? Like the skill system and the interface is the party host. If you think about a game, most games, particularly what I like to do is that's your person who says, welcome, do this, go here, check this out, and the skill system and the way it reacts on the HUD, the interface of the game is sort of leading you to the next thing. And once you get that flow down and the rate at which the game is giving you activities, then you're in like what we describe as a game flow. And it's not until really that last year, before that, the game flow, it doesn't even exist in the way that you see it in the final game. And that's what we were working on a lot that last year.
+
+SPEAKER A
+So at which point is like the set of skills of skill tree, the characteristics of the role playing aspect of it, when is that set, the ideas?
+
+SPEAKER B
+We usually have it in the beginning, but it's just we know it won't be done until that last year. We'll have one, but we know it's going to get honed because it's not until you really see, OK, how impactful is that one, how much are you doing? It like, how much are you really? And the main combat ones, they always win. You always know the players will drift toward the combat type skills because every character needs some amount of that. But okay, well, how important is cooking? How important is Alchemy? How important is these other type of activities and then how do you balance them? Where when you load up the skill menu, it isn't automatically give me plus ten damage.
+
+SPEAKER A
+What about the combat system? That does seem to be an important part of a lot of games start in the beginning.
+
+SPEAKER B
+Yeah, every time. Usually we're making that first playable. It's an error. You can go through some amount of dialogue, some amount of combat.
+
+SPEAKER A
+How do you get the combat right? What's the secret to a great combat system?
+
+SPEAKER B
+Well, first, on a control side, helping the player when they don't realize it. There's a lot of tricks you can do with Magnetism in terms of the controller and where the attacks go. So it has to feel the minute to minute has to feel really good in your hands. There's a lot of animation time, right, and changing animation. So they're impactful and they happen at a rate that the player feels like they're really doing it. And then ultimately, it's the illusion that the enemies are smart, but they really are there for you to kill them. Right. So they do a lot of things to just let themselves get killed. They're not as near as smart. Near as smart as we can make them, because it turns out that is not fun.
+
+SPEAKER A
+Right. So there's a balance between but that is, I guess, a kind of AI. And it's a very intimate interaction with an AI because there's a lot of stuff going on. It's not just very kind of shallow, like a dialogue or something like that. There's a time critical nature of it. A lot of stuff is happening, and if anything feels off, it's going to feel wrong.
+
+SPEAKER B
+Yes, all the games do it. It's not unique to what we do in terms of how they handle combat scenarios. And there are some games that just do it extremely well in terms of even a multiplayer where you're playing Bots and most people don't know it or how a multiple enemy scenario is really you know, they don't all shoot you, they trade off. They're going to wait. And I was like, I'll just wait my turn because we don't want to overwhelm them. But he feels like you feel like you're overwhelmed when there's six enemies. But a good game will no, they're going to take their time.
+
+SPEAKER A
+Is there a science to it? Is it art? Is it like.
+
+SPEAKER B
+Yes, it's all of that.
+
+SPEAKER A
+So it's like an iterative process where you try different things.
+
+SPEAKER B
+There's a lot of animation, there's a lot of timing. Animation work, hard work. Also, how does the ridicule change? What are the little sound effects?
+
+SPEAKER A
+What about the game? If I like that, it's fun.
+
+SPEAKER B
+Again, that goes back to the winning.
+
+SPEAKER A
+The winning is fun.
+
+SPEAKER B
+Yes.
+
+SPEAKER A
+Death is not.
+
+SPEAKER B
+Yes. Let the wokey win.
+
+SPEAKER A
+I like how you have to dumb down the AI to make it fun for humans, because if you didn't, it would just. Be just slaughter nonstop for all humans. That's good to know. What about things like you said, cooking? Like crafting making potions and poisons and smithing weapons and armor cooking. How do you get that right? What's interesting there it's such an interesting like, a lot of games don't have that kind of thing. So what role does it play?
+
+SPEAKER B
+I think we really cracked it in a way. I like the Fallout Four, actually, where when you're doing Elder Scrolls, we have the flowers and things and you have alchemy. And we took this to okay, if it's post apocalyptic, what if everything in the world was an alchemical ingredient in some kind? So breaking it down to their components. So when you walk around a world like that again, we like the simulation. We like the forks and the spoons and the cups and all that. Okay, how can I use those to create? So I love how it works. Starts working in Fallout Four, where, okay, all these things, I find they have some value in creating or crafting outside of a cup is worth one gold piece or one cap.
+
+SPEAKER A
+By the way, to be honest, I haven't played Fallout Four. Played fallout three. Thought that was a legendary game. Can you make a case for Fallout Four, or should I just wait for Fallout Five? And when does that come?
+
+SPEAKER B
+I think you should play a Fallout Four. Love to hear your thoughts.
+
+SPEAKER A
+All right.
+
+SPEAKER B
+It's a different game.
+
+SPEAKER A
+Scaram is tooth.
+
+SPEAKER B
+We try to make them all different.
+
+SPEAKER A
+They are fundamentally different.
+
+SPEAKER B
+They all have their own tone. Yeah. So Fallout three and Fallout Four intentionally a very different tone.
+
+SPEAKER A
+Oh, really? Interesting. What's that world like? What's the post apocalyptic world of Fallout? If you can just briefly take a stroll into that world tone wise.
+
+SPEAKER B
+Well, look, in entertainment, there's a lot of post apocalyptic stuff. And what makes Fallout tick is the world that was left behind, the world that blew itself up, this utopian world of nuclear energy, and it all goes wrong. So I love the American dream of that, like how they visioned the future in the blowing itself up. I think that's like a super interesting place to explore, which is why we always wanted to play in that world. And it does an amazing job of sort of weaving the drama and darkness of a post apocalyptic world with B movie humor. It winks at the camera sometimes, often, actually. And that when you're in that world, it just has its own unique flow and vibe outside of anything else kind of in that genre.
+
+SPEAKER A
+So Elder Scrolls has, or at least Skyrim has some humor that's a little bit but Fallout leans into it a little more.
+
+SPEAKER B
+A little bit more. A little bit more. Yeah, it does. It's like ironic humor. It's the duck and covered, so get under your desk if the bomb comes and everything will be fine. It's that type of humor.
+
+SPEAKER A
+So the funny thing is, I do think Fallout Three is one of the greatest games ever. You've said that quote when we started Fallout Three in 2004. We obviously had big ideas of what we could do with it. And I talked to a lot of people, from X developers to press folks to fans. What made it special? What are the key things you'd want out in a new one? The opinions, and I'll put this mildly, varied a lot, but they would all end the same. Like a stern father, pausing for effect. But do not screw it up. How do you not screw up a game? You have not screwed up many games yet.
+
+SPEAKER B
+I mean, back to the Fallout one, I remember that we were met with a lot of skepticism in terms of, oh, what are they going to do with this? It was a beloved kind of isometric turnbased roleplaying game, awesome for when it came out. And actually it was announced we had finished Morrowind, but not announced Oblivion, but because we had acquired the rights, we had to announce it. I think Interplay was a public company. I don't remember. I just remember we had to announce it. And we're thinking there, well, we're going to piss off all the Elder Scrolls fans because we're announcing a Fallout game. We're probably going to piss off the hardcore Fallout fans because we didn't make the original. And clearly we'll probably make a different kind of game. So I do remember there was a lot of concern with all of our fans and fans of Fallout at the time. And so I think it was pretty rewarding for us that that game found the audience and success that it did. It's one of my favorite projects that I've ever worked on. And because it was so fresh for us, and we had a very clear even before we had the rights, this is the game we're going to make. This is the kind of thing we're going to do. And we had done more when then we were working on Oblivion and it was kind of a breath of fresh air to do it. And what's kind of remarkable is Fallout Three comes out just two and a half years after Oblivion, and we did all this DLC for Oblivion. So we were really kind of prolific in how our development and how it was going. I just remember enjoying making that game so much because everything we were doing.
+
+SPEAKER A
+Was new, which after the world creation, was there some innovation, like technically that was happening?
+
+SPEAKER B
+The world creation, it was obviously a different look, even though some of us, very few of us, had worked on the terminator things, the VAT system, the skill system, and we loved the original game so much. So you felt this responsibility to bring it back in a big way and reintroduce it in a way that as much as we could scratch the same itch when you played the original game that had the same tone.
+
+SPEAKER A
+Are there some favorite things to you about that world that just kind of connect you with the show?
+
+SPEAKER B
+Again, I usually start with the beginning. I love the beginning. I love the character generation. If you played it a lot or you're developing it, it starts to feel really long. But the first time you play it or second, I just think it's awesome. And this idea, it's a hard thing to say. Okay. We want you to feel like your character on the screen. Even when you play like a skyrim. You don't know what you were doing before that. But Fallout Three, you were born in the vault and you raised in the vault, and you lived in the vault, but you experienced a part of that. So it's a very different when you step out. I think it really the visuals are the visuals, but the emotional moment of stepping out of the vault, you feel like you lived your whole life in.
+
+SPEAKER A
+The vault, and you feel like you have a sense of your past.
+
+SPEAKER B
+Right. And I need to find my father.
+
+SPEAKER A
+Isn't it possible to have that sense with Elder Scrolls? Like a life story, like childhood trauma and stuff, back to the human look?
+
+SPEAKER B
+You do some of that stuff, but they go through menus. Pick your background. We're doing that in Starfield. Hey, pick your background. What are you doing before this moment?
+
+SPEAKER A
+Can you pick your traumas and stuff? Yeah. Thank you. And then also make a mod for, like, a therapist, but a lot of.
+
+SPEAKER B
+It is in your head. So you're going to pick this background. You do these things and you're sort of like, this is who I was.
+
+SPEAKER A
+Yeah.
+
+SPEAKER B
+And we intentionally, with Elders goals, kind of make it as much of a blank slate. Elder scroll is a little bit more of a blank slate game to who you are, which has a lot of positives and fallout for us, has been more of a this was your life before. Here's who you were. Go be who you want to be. But this is the background. It's a little more strict.
+
+SPEAKER A
+Now. This might reveal something about me and speaking of childhood trauma, but I feel like there's a lot of the meaningful experience of a role playing game. It's not just the development of the character throughout the game, but the initial character creation, like you said. Is there something to that process that you found to be powerful, like the design of that process? Because you think so much about that beginning? How much should be controlled, how much should be defined, the interface itself, the visual appearance of the character, too? Because I feel like that you start to load in the world that you're about to enter by creating that character. Right.
+
+SPEAKER B
+We think about it a lot. It's a really good comment and question, and it's more than it has to set, the whole stage has to pique your interest for the world you're going to enter. And we've done it so many different ways in terms of when you actually go to make your character, when you're making the choice. And one of the things over time that we've wanted to avoid is people starting over. So there's a lot of intentionality around the types of choices you have that can be undone or not undone, because what game players want to is I'll play it and then I'll make a new character. But sometimes they do that because they realize they made the wrong type of character. And as a designer, you don't want that to happen. So some people get this common Elder school is like, oh, you simplified it. No, we moved those choices into the gameplay so that you don't make this character in the beginning and then 8 hours later realize you make a horrible mistake. And so, okay, I'm going to start out like that to me is a really, really bad experience.
+
+SPEAKER A
+So also like life itself, but like, life is okay. So you can then fix it in game.
+
+SPEAKER B
+Right? I wish I had learned archery. Well, I'm going to start tomorrow, so you can do that. Like, the Skyrim character system is really designed around that. All you pick is like, what's your race? And that gives you some things, but there's nothing you can't get then on your own. It sounds weird, but you mostly want that beginning character generation to be visual, which you then can also change in the game and some starting skills that get you off to the type of play that you want. But if you discover you don't like that type of play as you play, you can move your character along. So we have moved away post Oblivion to a classless, meaning you don't have a strict character class, warrior, mate, thief, whatever in our games.
+
+SPEAKER A
+And that's continuing for the are you thinking of Elder Scrolls Six? You're already thinking about that kind of stuff. Do you think of early on, like you said, the first few experiences in the game, you're already thinking through them.
+
+SPEAKER B
+Yeah, we know what the first few hours are like. We know what the character system is basically like.
+
+SPEAKER A
+So totally. What's the difference to you between oblivion morrowind? Oblivion, skyrim and elder Scal six. To me, stuff blends together, but Oblivion, that's when you could make spells and stuff.
+
+SPEAKER B
+You could do it in Morrowind as well. Oblivion has some more guardrails on it. Morrowind is where you can really go. And Daggerfall I don't remember if you make spells in an arena. I think you can. Someone will correct me. You definitely can. And dagger fall gets crazy. Morrowind, you can somewhat. And then we start putting guardrails on it because people started breaking the game in certain ways.
+
+SPEAKER A
+Yeah. Why is it about to break the game? You always want it to be.
+
+SPEAKER B
+Well, there's like one people love in Morwind where you could make these recall stones and you could teleport to different areas, which you really need in that game. It breaks so many quests.
+
+SPEAKER A
+Yeah.
+
+SPEAKER B
+And so any quest, we would do this exercise of designing a quest, and then someone would say, and then I recall away, okay, the quest is broken. And then one day someone says, can we just get rid of that spell effect? Everyone's like, yes, please. And so it allowed us to make better content.
+
+SPEAKER A
+So tangent upon a tangent upon a tangent, how do you create a compelling quest? Because there's all kinds of personalities of humans that play these games. Right? Because I like the grind.
+
+SPEAKER B
+Well, look, there's multiple flavors of a compelling quest. Some of them have very good upfront storytelling. You just like the story and the NPC that's giving you this task. And you'll go through a more handcrafted experience that the designers have done a really, really good job on the space. It has some twist or surprise in the middle, and then the ending has some multiple options that the player feels like they got to do something. They made an interesting choice, but the best ones for me are actually where all of that was far more open ended. How I am going to accomplish this task is completely up to me, and I'm going to find some ingenious solution. A silly this sounds very basic. It's going to sound quite cliche and silly. Go find me five day dries or whatever. Find me X of something that's hard to get. It's a very simple set. You can give a simple story set up for that. And we're not telling the player where to get those. And I think, now, where could I get those? And I actually find those to be just as rewarding as the really handcrafted well done, a little bit more linear with an interesting choice at the end. If those objects are in the world in some believable way, that there's usually some challenge at getting them.
+
+SPEAKER A
+How do you place objects in the world in an interesting way? Because it's a big part.
+
+SPEAKER B
+We have a level design people, if they only knew how much we spend on. We have a clutter group, a group of people who clutter. Clutter is all the stuff around, just like interior decorators for treasure and stuff and trash, and they go through every space and they clutter it. Our level designers think about it a lot. These also become landmarks for the player when you're walking through a space and, oh, this is the place with this. And there is a logic to making a good level, as they say, with even if you walk by, like, a little T intersection, that becomes like a decision point in the player's head, oh, I didn't go down that way. But the more you do that, it looks easy on paper. But when you're playing a game, you actually kind of want to limit those because he's trying to keep track of all these decision points. Then they get lost. And yes, we have maps, but anytime the player is going to check a map in a place like that, I feel that it's more of like a backstop for certain players if they need to check the map, I feel like we've kind of failed.
+
+SPEAKER A
+Got it. There's a momentum to it. Just pulls them in and, you know.
+
+SPEAKER B
+Look, you played a lot of games. You played a lot of levels where you're just like, I'm a little confused, or I don't know. And you play other levels where like, man, yeah, it was great. I went through it. It was well balanced. I knew where I was going. And you don't want to ever be maisy. As long as you know where you're going, as long as you know you made those choices, then it feels fine. But as far as the treasure and all of the loot, it is really an art. We will not do enough clutter, and then we will over clutter, and then there's too much stuff everywhere, and then we declutter every single game. I wish we got better at it. It would save us a lot of time.
+
+SPEAKER A
+But you're constantly going by feel like, this is not this is too much. It's not enough.
+
+SPEAKER B
+Right? Because the other thing is, look, it creates people want to pick everything up. They want to click everything. So if you have too many things of importance in a room, it actually makes you feel a little tight as a player. You're like, well, I'm basically an idiot if I don't pick all this stuff up. You probably felt this way.
+
+SPEAKER A
+Yeah, for sure.
+
+SPEAKER B
+And the moment where you decide, you're just like, I've clicked so many things in this room, I actually am going to leave that Ammo canister there. But you feel like a dope. You've probably experienced this.
+
+SPEAKER A
+Yes, but also you have a joy from if there's not many items, and you find the one, and you got it right, and you feel good. I got it.
+
+SPEAKER B
+And then it's finding, like, oh, I stuck my head in this corner, and I picked this lock, and I opened this locker, and there was this thing I've been waiting for.
+
+SPEAKER A
+Yeah. What about, like, rare and rare items?
+
+SPEAKER B
+That's an art, even more so than art. I will say we have a ways to go there in terms of finding the right drop rate for special items. We call them your epic, rare, legendary. You look at games like, so many games do it, and there are ones that you just play and love because they have it down. Destiny Two is great at it. Diablo a series I love, you know, sort of famously Diablo Three, which I think is great. And they did an update. It mostly just changed the loot drops, and it's like this whole new experience, and there's a really real art to it. I think that we're still learning. We're still learning a lot and have to we're trying to get better at it because it's one of those things where it drives you through the game. It's fun to get the treasure.
+
+SPEAKER A
+Diablo and Skyrim have this interesting quality of being extremely popular, and there's a lure around rare items, so it changes the dynamic of, like, you could afford to have really rare items.
+
+SPEAKER B
+Yes.
+
+SPEAKER A
+And then somebody finds it, and that becomes, like a thing as you release a game, a lot of people play and they start sharing stories and so on. It's so interesting because that's part of the game experiences the stories of others. Right.
+
+SPEAKER B
+For us, 100%, because we've been classically with most of our stuff, single player, that water cooler, shared experience. We would have a thing like what we call them did, you know, moments like, we got to have a bunch. So you meet someone, they do, what are you doing? And then they say, did you know? If you go here and do this, what did you know? And that, to us, is where a lot of our community has been sharing their stories. And here's what you can do.
+
+SPEAKER A
+Has there ever been a temptation to create not a single player game that's gigantic?
+
+SPEAKER B
+That's what we did. Follow 76. We have Elder Scrolls online. Not a game I created, but look, that started as a more classic MMO know the folks, they're part of our company who made that game, and it's insanely popular.
+
+SPEAKER A
+It is. Okay. So I should try it out.
+
+SPEAKER B
+They do some great storytelling quests. Like, the actual mechanics aren't the same as Skyrim, but the world is awesome. They've just done an incredible job. It's about to be ten years for that game as well, and it's just a great community around that.
+
+SPEAKER A
+Yeah. I haven't played because there's a mobile Fallout game. Right. I need to play that. I was thinking of playing Diablo mobile, too.
+
+SPEAKER B
+I mean, you can debate the monetization, but I think they did a phenomena.
+
+SPEAKER A
+It'S really fun on Fallout.
+
+SPEAKER B
+Diablo.
+
+SPEAKER A
+Diablo. Yeah.
+
+SPEAKER B
+Well, follow. I definitely recommend that one. Fallout Shelter. Completely different game.
+
+SPEAKER A
+Yeah.
+
+SPEAKER B
+Diablo Immortal. I was very impressed.
+
+SPEAKER A
+They had a lot of fun on the mobile.
+
+SPEAKER B
+Yeah.
+
+SPEAKER A
+What's the challenge of designing a game for mobile versus the PC and console?
+
+SPEAKER B
+Well, obviously the screen size. Right.
+
+SPEAKER A
+Is that what you feel first? What's the fundamental change in the philosophy of design? Does it change the tone of the game?
+
+SPEAKER B
+Well, we've done a few things, and we have a new mobile game that we're working on that we haven't announced yet that I'm in love with. There are a couple of things that you approach on mobile. Now I can give you sort of the classic mobile gaming thing. And then what we do, a classic mobile gaming is really for short play sessions because for the amount of people you're going to get, the number that have the amount of time to sit there for a long time. And play it like a console game or a PC game is lower because people are playing mobile games on the move or whatever and how it onboards you, because obviously most of them are free. So the tutorial, how the tutorial works, how it gets you into the game, because you haven't bought it, you haven't done this investment of buying it and then saying, no, I'm going to learn it. People don't care. So really understanding how they get into the game, those two things are really the magic to mobile gaming. We have found, though, with our games, particularly Fallout Shelter, people will sit there for an hour or two. They will just sit there and play it like large numbers of people who play it for hours a day.
+
+SPEAKER A
+So there is a more, I don't know, addicting element to the mobile because I guess you can spend.
+
+SPEAKER B
+If you look at kids these days, they can stare at their phone for hours. That's all they do. That's where they watch everything. So it's also like a demographic thing. The younger audience, they would rather sit and stare at their phone than play it on a big screen.
+
+SPEAKER A
+I would just love to sort of list out throughout human history the evolution of sentences that began with if you look at kids these days.
+
+SPEAKER B
+It'S true.
+
+SPEAKER A
+The kids of the kids these days will probably be talking about be doing, like, virtual reality.
+
+SPEAKER B
+I love mobile games, though. I play a ton of them. My favorite game this year is Marvel Snap, this card game from the folks who did hearthstone, you should really play it. Do you like card games?
+
+SPEAKER A
+Yeah.
+
+SPEAKER B
+Do you like superheroes? No, it's genius. You don't like superheroes?
+
+SPEAKER A
+No, I don't like superheroes. I never understood. Listen, growing up in the Soviet Union all right, well, I don't understand. You're wearing a costume. It's silly to me. So you have to suspend. You have to be able to immerse yourself. And for some reason, there's something about costumes. It doesn't get me. But then again, I'm like into elves and dragons, so I don't understand and I'm fine, I get it. Yeah. But the rest, at least the Western world disagrees with this. You're Batman, you have little ears, but that's fine. Well, back to elder school starfield. So one thing I didn't ask you about, when you look at the timeline of 5678 years, whatever it is, to create a game, what's the role of the deadline? Internally, not publicly honest, do you try to keep in your own brain a deadline for the team?
+
+SPEAKER B
+A deadline, yeah, all the time.
+
+SPEAKER A
+And when you set that deadline early in the development, do you try to set deadline that's really tough to reach?
+
+SPEAKER B
+No, we try to make it like, hey, this is our best guess. If you make it tough to reach, you're going to miss it. It's arbitrary. We really try to keep ourselves honest because it will let you know where you're at. Right? When I have first playable, we want to be done with prototyping or design by this date. We want to have first playable this date, we want to have this. But look, things happen. Pandemic happens, people go home, it throws everything off or what you needed to do, because we're not just like making a game and then moving everybody on what you needed to do. Like Skyrim was so popular, we kept people on that game for longer, so it delayed a little bit. We were doing a fallout Four at the time because, hey, we really shouldn't move the people on the fallout yet because we're doing these things in Skyrim and we should. So it just sort of keeps you honest for where you're at.
+
+SPEAKER A
+Does it get super stressful as you get closer? You try to avoid announcing anything. Is there a temptation to announce, well, I've done.
+
+SPEAKER B
+It always right. I've announced starfield. We're pretty loud with a release date that we then had a delay.
+
+SPEAKER A
+Was that tough?
+
+SPEAKER B
+It was, but it was the right thing to do.
+
+SPEAKER A
+How do you know it's the right thing when you sat down and looked at it like Mrs not ready?
+
+SPEAKER B
+It's not an exact science, but you can look at what needs to be done and the amount of time you have, and we've done it in the past where we can get it done. We believe we can. And so you're fighting that personal belief that you can get something done. But there's a lot of things that go into release date with marketing and publishing. And we've reached a point where on Starfield where it was pretty clear to us, even though you want to say you can get it done, that the risk involved with that. To the fans of the game, to the team, to the company. We're part of Xbox now, to everybody was, we should really move it and give it the time it needs.
+
+SPEAKER A
+So you mentioned part of Xbox. Microsoft bought Bethesda and Xan Max for $7.5 billion. What's it like joining the Xbox team? I think written about it. What are the exciting aspects of that?
+
+SPEAKER B
+When your company goes through a change like that, no matter what it is, even if it's somebody that you've worked with for a long time, you never know what you're in for. You hope. And I had worked with them since we started doing console stuff with Marwind Was. They came to us, came to me and said, hey, you should make this game for the Xbox. And so when they were making that console had a great experience with them, and then on the 360 with oblivion. And so I guess the point is we felt that we had a very good relationship with everybody there. And we understood what their culture was, but you never really know. And I mean this honestly, it's been awesome that the culture inside of Microsoft and Xbox that people see from the outside is the culture inside. The way they talk about players, the way they'll invest in the players, the risks they'll take, the thoughtfulness from Phil Spencer on down has been feel really lucky. And then a game like starfield where, look, we've had a lot of success with the games that you talked about, but we've never been kind of the platform seller, the game for a platform for a period of time. And so there is a lot of pressure, there's a lot of responsibility there to make sure we deliver for everybody.
+
+SPEAKER A
+Is there a chance that starfield is exclusive to Xbox?
+
+SPEAKER B
+It is exclusive.
+
+SPEAKER A
+It's officially ready.
+
+SPEAKER B
+Yes.
+
+SPEAKER A
+I get it. Extra pressure. Also creating a new world.
+
+SPEAKER B
+Yeah, it's new. But keep in mind for us that exclusivity is not unique. Even though we've done PlayStation stuff and I think the PlayStation five is just an insane machine, they've done a great job and we've had great success on PlayStation. We were traditionally a PC developers in the beginning. We transitioned to Xbox, became our lead platform. Like, Morrowind is basically exclusive to Xbox. Oblivion was exclusive to Xbox for a long period of time. Skyrim DLC was exclusive. So we've done a lot of like our initial stuff is all Xbox. So we get into development and saying we're focused on Xbox and it's not abnormal for us in any way. It's been kind of the norm. And from a development side, I like the ability to focus. So our ability to focus and say and have help from them, the top engineers at Xbox to say we are going to make this look incredible on the new systems is like, from my standpoint, it's just awesome.
+
+SPEAKER A
+What's the difference in creating the console versus the PC? I also have to admit is this shameful. Actually, you should recommend to me, I've never played skyrim or any of the games you've created on Xbox.
+
+SPEAKER B
+Really?
+
+SPEAKER A
+Yeah, I played very little Xbox.
+
+SPEAKER B
+Yeah, sure. Look, there's the obvious interface part between mouse and keyboard and then a controller. But when you're looking at hardware PCs, it's tough, right? Because you're looking at, well, what are their driver versions? What kind of monitor they have? What is the actual refresh rate of x, y, and z? We're used to it. But if anyone will tell you, give me the hardware that I know I'm writing it for, you know, this and the series, x is just an incredible machine.
+
+SPEAKER A
+You know what it is, you know what it is.
+
+SPEAKER B
+And now that we're part of Xbox, getting the people who built it to show you how to make it really dance is just awesome.
+
+SPEAKER A
+Is there a case to be made? Do you get people that. Enjoy people that do both PC and Xbox, that enjoy Xbox more like that. If they have a choice. If they enjoy it.
+
+SPEAKER B
+I think that depends on and look, now that you can take your save and go between and all those things.
+
+SPEAKER A
+You can yeah, it depends on for which games. So for Skyro, if you have the.
+
+SPEAKER B
+Game pass PC version of it versus Steam, not via Steam right now, there's the game pass.
+
+SPEAKER A
+I'm like learning about this. So this can be on game pass. And then if you can take it from PC through game pass, but I.
+
+SPEAKER B
+Think it depends on, like, for me, what's my physical mood? Do I want to lean back on a sofa?
+
+SPEAKER A
+Exactly right.
+
+SPEAKER B
+The actual physicality of it is what determines where I want to play? Do I want to be 2ft from a thing right now? And sometimes I like that I am more of a console player just because I sit on my PC at work all day. I play a lot of video games. So when I get home and I want to play some, I am a sofa screen controller person.
+
+SPEAKER A
+Let me ask you a ridiculous question. So you've created some of the greatest games ever. I think the question will be what's the best game of all time? All right, just give me a second. Tetris. All right.
+
+SPEAKER B
+Interesting. Have you read the book on Tetris? No. You should read it. Basically someone who grew up in Russia.
+
+SPEAKER A
+Yeah, I'm sure there's an interesting story. The fact that there's a book about Tetris is fascinating. Is there a book about Mario? I would love to find out more, but I think I would put Personnel but Skyrim. I'll take that good answer at number one for me, which is tough, however you put it, because you could also make the case out of the Elder Scroll series. Like, what do you actually value more? If you put Tetris and Super Mario up there, then the credit goes to Morrowind, maybe over Skyrim. I don't know where the biggest leaps are, but overall, I think it's Skyrim. But for you, if you're not allowed to pick any of the games you were involved with, what are some interesting candidates for you? They're just games that inspired the world, impacted the world, shook the world. In terms of what video games are able to do.
+
+SPEAKER B
+Well, first, I'm just sort of like hearing you say that you think Skyrim is the best game of all time is quite. Thank you. And it's incredible thing to hear. And when I think about with a couple of answers, there's ones that are like, personal to me. Ultima Seven, probably.
+
+SPEAKER A
+Can you talk about Ultima? You said that as an inspiration. I never crossed that world. Well, what kind of game is it?
+
+SPEAKER B
+It's a role playing game circa 1992, 93, 94. And Ultima online. First really visual online world in that way. But for me, that was a virtual fantasy world where I had, you know, you could break bread, you could pick all the stuff up. Anyone who's played Ultima's and plays our stuff can see the kind of touchstones and callbacks to that or inspirations. And the other thing that I loved about Ultima was they were all different, right? That they iterated and there weren't necessarily what I'll call a plus one sequel outside of Ultima Seven Part Two. Clearly a plus one sequel, but they each had their own tone. I love, like, the boxes. It's something that we get into as well. I love this idea that a game also is this tangible thing.
+
+SPEAKER A
+Oh, when you buy it, the cardboard.
+
+SPEAKER B
+Boxes and the way they were designed, and Ultima Seven is black and Ultima Eight is the fiery gate and the paintings on them, does that break your.
+
+SPEAKER A
+Heart a little bit? That culture is a big gone?
+
+SPEAKER B
+A little bit. And that's also why I like this goes to video gaming or any other digital things where digital ownership has great value to people. So I like looking at my collections of games, even digitally. I want to see nice in the same way you want to see nice album art. I want to see nice cover art for our games, and we spend a lot of time in them so that you take a look at Elder Scrolls and Mormon Oblivion and Skyrim. We want those boxes to look good next to each other. Going back to the video games, I always mention Tetris because I think it's obviously, I love virtual worlds and those kind of things, but for the time and what an interactive video game? Sort of the simplest form. I sort of think you can put Tetris in front of just about anybody and they'll enjoy it, and it's got some moment of challenge, and it's just so elegant. It's like, to me, this very pure game that only works because it's a video game.
+
+SPEAKER A
+And I think mobile games figured out some of the magic of Tetris, the simple.
+
+SPEAKER B
+Some of them have. Yeah.
+
+SPEAKER A
+But Tetris did it a long time ago, right? You can really create that immersive experience.
+
+SPEAKER B
+Without but for me, the ultimate civilization as far as a grand strategy game. Pacman, I mentioned in terms of bringing games into the mainstream in a way that captured people that nothing before. It had Super Mario, Donkey Kong, everything. Nintendo probably the best game makers in the world. Still, they know who they are. They know what they want to do always, and off what they create.
+
+SPEAKER A
+I got to ask you about a game I haven't played but people put up there as one of the greats Zelda, Breath of the Wild. Have you gotten a chance to play.
+
+SPEAKER B
+A lot of it? Yes, it's fantastic. Fantastic.
+
+SPEAKER A
+What do you think about it's? A very different experience. I played other Zeldas than the open world you've created, but it is also an open world.
+
+SPEAKER B
+It is. It's my favorite Zelda, because obviously like open world stuff, and the one thing that they do really well is they don't constrain you. Even some of the things we do constrain you a little bit more. Zelda says, here's the whole thing. And you are constrained by the actual player abilities you haven't earned yet. Not some arbitrary barriers. And so I think they just did a phenomenal job. It's a magical game.
+
+SPEAKER A
+It really feels open because it truly is.
+
+SPEAKER B
+Yes.
+
+SPEAKER A
+I just like asking about some open world. A very different one is the world of either Grand Theft Auto or Red Dead Redemption.
+
+SPEAKER B
+Both love. I would put GTA Three, Grand Theft Auto Three up there with the landmark kind of usher in the open world when that comes out on the PlayStation Two. Even though there was GTA One Two, this was an all new thing with the Mobster storytelling.
+
+SPEAKER A
+3D version.
+
+SPEAKER B
+I guess it was then Vice Cities, kind of a fast follow, which could be my favorite one. I loved all the grand thefts. I think they're really phenomenally well made games. Same with Red Dead. I think Red Dead redemption One could be my favorite story. Highly recommend finishing that game.
+
+SPEAKER A
+So you like both the story. You like the grittiness of that because they have a bit of the I guess if you like the fallout there's, the humor, I don't know. I don't know what it is. It's the light hearted humor of it, but also the brutality of human nature is in there, too. And also some of the fun they create with the music when you drive and stuff like that, they create a world. There's a tone, there's a very strong.
+
+SPEAKER B
+There is a very strong tone. The satire on the world is just so well done. The gameplay is great. I think they've just done a phenomenal job.
+
+SPEAKER A
+Is there any others that pop to mind?
+
+SPEAKER B
+Portal.
+
+SPEAKER A
+Portal. Yeah, that's another weird creation.
+
+SPEAKER B
+I could just sit here and list games forever.
+
+SPEAKER A
+I'm enjoying this.
+
+SPEAKER B
+Hearthstone is a game I love. I love all type like sports. College football, NCAA football was my favorite. I would say this is a great role.
+
+SPEAKER A
+You would actually keep getting a role.
+
+SPEAKER B
+It's a role playing game because I have all these characters. I have like 60 characters, and they're all leveling up, and then I have to play them. And then the college wants to like college football. They'd graduate. So you lose your players and then they stop making the series and they know the folks at EA and they will say, I have bugged them. When is this going? They're doing it. So it's finally coming back.
+
+SPEAKER A
+Nice. What would you say is the greatest sports game of all time?
+
+SPEAKER B
+Well, it's unsafe football. You have to pick the year.
+
+SPEAKER A
+Versus Madden.
+
+SPEAKER B
+There's more teams. You got the college fight songs, there's more pageantry and the players turnover, they're only there for four seasons. It's more dynamic.
+
+SPEAKER A
+So you like variety versus what was the last one?
+
+SPEAKER B
+2014, maybe? It was.
+
+SPEAKER A
+And you don't like FIFA.
+
+SPEAKER B
+Look, FIFA is incredible. Look, I'm a college football fan. They give you that fantasy. If you like European football, soccer, FIFA is incredible. I love that game, too.
+
+SPEAKER A
+Have you been paying attention to the game design of that world? Of those worlds? Yeah.
+
+SPEAKER B
+And the thing people, I think with those kind of games or racing games forza put up there, I love forza played them all. When you have to recreate something that's real in the real world, say it's cars or it's sports games, everybody knows how it should work. That's a really difficult task. When people know how it should work, then you're going to balance it for single player. The multiplayer parts of it very competitive, and in many respects, you're forced to put out a new version every year. And I say forced in quotes because you count them as big updates. But it's a much more difficult development process than I think people understand and how hard those teams work and know a lot of people who do it. And I think they just do. I've enjoyed them all. I buy Madden every year.
+
+SPEAKER A
+Yeah. Every single year. Yeah, they do refresh it. There's a feeling of freshness. I don't know what that is.
+
+SPEAKER B
+Yeah, look, there have been years where it feels like less was done and more was done, but I enjoy it every year. Yeah.
+
+SPEAKER A
+What is a perfectly productive day in the life of Todd Howard look like? So maybe not perfectly, but just like a perfectly average production. Are you a morning person, evening person? Is it? Chaos is a pretty regular.
+
+SPEAKER B
+I'm in a good flow right now. I'm still doing a lot of stuff. So there's things I'm like, executive producing and then Starfield I'm directing. So I sort of view that as that's an everyday thing. Fortunately, I get to do a lot of stuff from look at the TV show we're making and this Indiana Jones game that's being developed at machine games. So we have to look at that. But the best really day, or I feel it's fulfilling, is get to play some of a game. The game will say starfield. Get to play some of Starfield, look at the problem set of what it is doing, and then get in the room with the other developers that I work closely with, and we solve that problem together. So that's the most rewarding thing when you can say, okay, what do we want this to do? What's the real player experience? We want? What are all the pieces in front of us where you know the actual tangible pieces as opposed to the beginning. The pie in the sky part is always fun, but it's like anything is possible that's fun, but it's not rewarding in the same way because you haven't solved something. Whereas these are the elements you have to play with. How do we make this all work together? And you come out of it at the end of the day, like, now, that feels great.
+
+SPEAKER A
+So brainstorming about big picture, both big picture and very specific detail of a game that's not working. Something's not working, you want to fix it, that kind of stuff.
+
+SPEAKER B
+Because you feel like, okay, you've made tangible progress on the actual build of the game. Or something you played in the beginning of the day didn't feel great. You've figured out a solution with a group of people. It's always with a group. And then the next day you're like, yeah, that worked out.
+
+SPEAKER A
+Who's on the team? Is it designers, engineers, all the above.
+
+SPEAKER B
+Artists voice overall, so internal to the studio. It's a lot of programming, a lot of art design, which breaks into some quest design, writing systems design, who are, like, doing all the treasure and the loot and the skill systems, and then level design. Making the spaces like those that you'll play through production is a big part of it. The producers who organize everything. I can't remember if I mentioned art. A lot of artists, QA staff as well. They're hugely valuable in saying, hey, we broke your game in these magical ways. What are you going to do about it?
+
+SPEAKER A
+Is the Loot design team still hiring? How do I apply? That seems like always I mean, all of this seems like a super fun.
+
+SPEAKER B
+It is. You know what? It's the best. Then you have audio and by far is the greatest job you could possibly have. If you're into, like, technology, it's great. If you're into storytelling and creativity and art, it's great. And it's really the gaming, the combination.
+
+SPEAKER A
+Of that and like I mentioned to you, offline, I think of video games, to me, it's brought thousands of hours of happiness. And so when you're designing the game, whatever you're doing, you have a part to play in a thing that's going to bring, like, millions, hundreds of millions of hours of happiness to people.
+
+SPEAKER B
+It's crazy, right? It is. And I'm going to play you saying that back to our team because people forget your heads down, you're trying to solve these problems, and then you do forget how many people it touches.
+
+SPEAKER A
+Like, even tiny decisions you make, tiny little things you create. Yeah, it's weird. I wish there was a way to, like, I would notice things in a video game and it's like, okay, it feels good, but you don't get that signal. The creator doesn't get that signal. I guess you could get that signal by why is luck stuck in this room? Like digging through the loop.
+
+SPEAKER B
+We do now get a lot of good data on what the players are.
+
+SPEAKER A
+Doing, enjoying and not that well, we.
+
+SPEAKER B
+Know where they've been and where they've died and how long they play in certain sections. And we can sort of tell outside of people just telling us on forums or calling or other things. We can tell for some data where people are dropping off or having a we can tell if there's a key frustration point.
+
+SPEAKER A
+Do you ever think about making people feel, like, human feelings when they play, like designing, like make them feel fear or excitement, anger, longing, loneliness with stuff all they love?
+
+SPEAKER B
+Yeah, of course. The big one I like to say is the video games give you is pride outside of other. If you watch movies or things like that, like, yeah, but you never think, like, look what I did. And that feeling of, like, accomplishment and pride in what you did, where you overcame, you talked about going back to a game that those are real feelings of accomplishment that I've felt in games that I've played. And when we get to see a player feel that, it's really, really special. The other one is there is an escape or to be someone else that's more powerful in our games that you aren't in real life that gives you a confidence or a perspective. We're doing one next week, but we've done a number of make a Wish visits, kids who could wish for anything, and they want to come, and I want to see the next game and meet the craters and see how you do it. And they come with their family, and it is like, the greatest thing that we do, and it reminds you of how important it is. And the other really awesome thing is that you can see the family change. By the end of the day, they didn't even realize what it meant to their child or what went into it. And that, to me, has been involved with that foundation for a number of years, and it's been really good reminder of how lucky we are.
+
+SPEAKER A
+And in general, for young people, that sense of accomplishment is hard to find.
+
+SPEAKER B
+Yeah, not everybody has it in the outlets that real life provides.
+
+SPEAKER A
+Well, that's the thing the world is cruel to. When you're young, nobody takes you seriously. That's why everybody always wants to grow up and get all the script as possible.
+
+SPEAKER B
+It's hard.
+
+SPEAKER A
+And then video games allow you, I mean, to build that sense of confidence, a sense of pride and something. That's why when people talk down to video games, like it's a culture and so on, it misses out on that really deeply meaningful thing, especially with single player. There are some darker aspects of multiplayer that people create communities and they can go off the rails a bit, but the actual experience of the game, especially one where you stick with for a while, that's really beautiful. Do you have advice for those same young folks, given that your life is an interesting one, given what kind of degree you got, end up being a legendary game designer? Do you have advice for young folks in high school, maybe college, how to have a career or a life they can be proud of.
+
+SPEAKER B
+Well, you have to find something that you love so much that it's never going to feel like a job. And don't do it for money. Don't do it for find something you love and the rest of it will come. It won't be a straight path. And do not ever underestimate yourself. It's going to take hard work, but the worst thing that young people do is think they can't accomplish something or they underestimate themselves. And maybe those first few times through where they do fail, if they love it enough, they're going to be resilient and push past that. Anyone who's had success or gotten somewhere, they've had those times right, and they've stayed resilient because they love it so much that this is what they want to do. When you do it for other reasons, I still don't think it's going to work out the same.
+
+SPEAKER A
+Did you have low points in your life, dark points, or your mind went to a dark place? Whether it's struggling to get a job, but as the softworks or maybe with Red Guard flop or where you kind of started to doubt yourself or any of that?
+
+SPEAKER B
+Well, I think what's weird, looking back, I was always so in love with doing this that I didn't view them as dark per se. Looking back, okay, let me find a way to make this work.
+
+SPEAKER A
+Even when it's hard and it's failing and all that kind of stuff, you just kind of like it's a problem before you to solve.
+
+SPEAKER B
+Yeah. When I started Bethesda, I don't know, my father had moved nearby to the office. I was moving and I slept on a sofa like I didn't care. I don't need a bedroom. I'll sleep on the sofa and work there. That's all I want to do. When the company almost went out of business, it was, well, I hope it doesn't I feel somewhat responsible, but hey, that's a learning lesson. Let's go. I think I was pretty resilient to it all. Fallout 76, like, really bad launch and, okay, what do we do wrong? What can we learn? Let's go at it now. It's a success, but those kind of ups and downs for the length of developments that we have, people don't see them, but we have them all the time. And so it's that sort of belief that with the team having done it time and time again, to know that now we're going to make it as good as we possibly can. And whatever we're experiencing now, when we solve it and we get it out and we see the millions of people who love it, it's all worth it.
+
+SPEAKER A
+And you're getting into new spaces. First of all, new worlds with Starfield, but also new. I saw the TV show you're working on, Fallout with Amazon. What's that like? Worlds that you created in the digital realm becoming going on the screen.
+
+SPEAKER B
+Yeah, people asked. I can remember ten years ago after Fallout Three was a hit. The movie producers coming and hey, we think this would make a great movie and taking a lot of meetings. And I think most people would jump at that like, sweet. And I sort of paused and like, I don't know, what is this going to do? I feel like they're going to synthesize. I met great people, like well known, creatives. It's going to get synthesized in this two hour I don't know. I'm not seeing the great thing here yet. I think the advent of television in terms of what it's become nowadays with big budget TV series that kind of came up again and met with people and Jonathan Nolan and Lisa Joy, who do Westworld. And I always love the work he did writing interstellar and the dark movies.
+
+SPEAKER A
+I just love Catherine Owens involved with this.
+
+SPEAKER B
+Yeah, he's the epic, directed the first.
+
+SPEAKER A
+Credible.
+
+SPEAKER B
+And he's the EP. He directed the first few episodes. And when I connected with him, Jonah was like, hey, you're the person I want to do this I met with. People kept saying, like, just let me see if he wants to do it. And to my joy, he was like, oh yeah, fall Three is one of my sign me up. I was like, no, how do we get this done? And at that time he was at HBO and we were trying to figure out, put a little pause on it and got to visit the sets, reading scripts and things like that. It's all new to me, but they're doing such an incredible job. I think if you like this world old, you are going to be just blown away. Keep in mind, I've never made a TV show. No one ever does it, wanting it to not be great. But they've just done their attention to detail and just obsessive with what's on the screen and the storytelling and how it looks, the whole thing.
+
+SPEAKER A
+Yeah, I think obsession is really a prerequisite for greatness. What they did, HBO did with Chernobyl, like the attention detail.
+
+SPEAKER B
+And he's doing the last of us now.
+
+SPEAKER A
+That showrunner, if you really care and you really put a lot of effort into the details.
+
+SPEAKER B
+I was stunned. I don't want to spoil it, but when people see it, I think they'll just be like, wow, the other thing we're approaching it. It's very different. Where when it was, people would say, want to make a movie? They wanted to tell the story of Fallout Three or then tell the story of Fallout Four. And for this it was, hey, let's do something that exists in the world of Fallout. It's not retelling a game story. It's basically an area of the map. And like, let's tell a story here that fits in the world that we have built, doesn't break any of the rules, can reference things in the games, but isn't a retelling of the games that exists in the same world, but is its own unique thing. So it adds to it. While also people who don't haven't played the games, who can't experience how crazy Cool Fallout is, can watch the series.
+
+SPEAKER A
+Are there some similarities or interesting differences between the creation of a game and a TV show? They notice from the sort of story perspective.
+
+SPEAKER B
+Well, for them, it's much more character driven. Like, you can do all these things with the world and stuff that we already have. It's the main characters, who they are, what their motivations are. That really is the engine.
+
+SPEAKER A
+Right.
+
+SPEAKER B
+Finding the right actors to do those.
+
+SPEAKER A
+Yeah, because there's no interaction. You don't get to enter that world. They have to do the work for you. The NBC is around the show. Yeah, I can't wait to see how it turns out. You also mentioned Indiana Jones. That's a different one. How do you work with a famous protagonist when the character is known? How do you work with that?
+
+SPEAKER B
+Well, it's different. Like, Indiana Jones is different where it is. Like, it's Indiana Jones, not a world. It's him. Right. You can talk about the world of Indiana Jones, but at the end of the day, it's about this character. And Raiders still my favorite movie of all time. No debate. It's the best movie ever.
+
+SPEAKER A
+Best movie ever.
+
+SPEAKER B
+Ever.
+
+SPEAKER A
+On a tangent, what do you love about it?
+
+SPEAKER B
+Well, I saw it, obviously, when I was younger, and I believed it. I believed this happened. And when they found the arc, I could not believe that they found it. And I have found over my life, it's still really watchable every time. I enjoy it every single time. Love the character, love the story. The opening is the greatest movie opening ever, and I love everything about it.
+
+SPEAKER A
+What was the opening?
+
+SPEAKER B
+What it's the temple and then the ball rolls and tries to crush him. That's the opening of Raiders?
+
+SPEAKER A
+Yeah. He steals the I think you're deeply fantastic.
+
+SPEAKER B
+What's? The opening of Raiders. So I've always wanted to it's one of those things like, what's on your bucket list? Like, I want to make an Indiana Jones game. And I had pitched Lucas. I had met some people there and pitched them back in nine, this Indiana Jones game concept, and they wanted to publish kind of the deal fell apart. They wanted to publish it. And we were a publisher, and so we didn't do it, and I didn't really have the team to do it. I just was going to figure that out after we agreed to a deal and well, we made Skyrim, so it worked out. And then fast forward ten years plus, and Lucas now part of Disney, and they're doing a lot more licensing and working with people. And so I knew some folks there and said, I have this idea that I pitched a long time ago, and they loved it. And again, the internal team that I had not only didn't have the time, they probably weren't as good a fit as Machine Games. Who's done the Wolfenstein series? Who is the perfect fit for this game with storytelling and how they record it? And it's awesome. They're just doing an incredible job with that game. People are going to be, if you like, Indiana Jones, it is a definite love letter to Indiana Jones and everything with it.
+
+SPEAKER A
+Can you say if it's more on the action adventure like side, like the actual experience of the game, I could go back.
+
+SPEAKER B
+I would just say it is a mashup. It is a unique it isn't one thing intentionally, so it does a lot of different things that we, myself and Yurik and the folks at Machine Games have wanted to do in a game. So it's a unique thing.
+
+SPEAKER A
+Before I forget, who do I how many humans do I have to kill? I mean, dragons do I have to kill to get myself somehow into Elder Scrolls Six? So mod. If anyone wants to create mods of me, is that possible? Yeah, that's possible. While maintaining realism, somehow you don't want a person in a suit and tie. Doesn't make sense.
+
+SPEAKER B
+You put you in, but put you in, fall out. You can wear that.
+
+SPEAKER A
+Yeah, exactly. Please put me so fall out. There's also a culture of you do.
+
+SPEAKER B
+A mod where you replace the mysterious stranger.
+
+SPEAKER A
+There you go. That's a to do task.
+
+SPEAKER B
+Top mod right there.
+
+SPEAKER A
+And you will have my deep gratitude and more, dear stranger, for doing so. What's the programming language for mods?
+
+SPEAKER B
+Mostly they use our internal scripting language that's built into the tool.
+
+SPEAKER A
+Okay. I'm almost afraid to explore that world because you will never turn back. How long? You've created so many incredible games. What does the future hold? Is there going through this process? Do you still have the energy, the passion, the drive? I can keep creating.
+
+SPEAKER B
+I cannot imagine doing anything else. I'd like to do it as long as possible. I will say, though, as I've done it, soon it'll be 30 years. At Bethesda, I've learned that to appreciate the developments a little bit more, that the time it takes. I should prioritize all of us enjoying the development process more than I did in the past. It was like just wanted to the end of all that mattered. And the more you do it, you realize, no, I'm spending the majority of my life in Tamariel and the wasteland and fallout. So the moments that we're all doing this together, we need to enjoy it. It's a lot of work finishing Starfield, but, hey, we got to enjoy this. This is, like, incredible. We don't get that many shots.
+
+SPEAKER A
+So the actual process of creating the struggles along the way of stuff not working, like you said, at this point, Starfield probably creating some of. The glue of how stuff feels and going back again and again to try to make the beginning better, all that kind of stuff.
+
+SPEAKER B
+And I would say it for anybody's. Vocation whatever you're doing, whatever people do, you're going to have harder times. And sometimes people maybe recalibrate yourself. They're like, okay, how can we make this more enjoyable for all of us, no matter what you're doing? And rewarding.
+
+SPEAKER A
+So if life is a video game, which most likely is, what do you think is the meaning of life from having created so many games where the character has to try to figure out there's bigger questions than just solving the quest, you're asking big questions of, why am I here? I feel like that's good practice for answering the same question for this video game we're in, what do you think is the meaning of life? Todd Howard.
+
+SPEAKER B
+I can say what motivates me.
+
+SPEAKER A
+That's a good start.
+
+SPEAKER B
+Having a curiosity, the ability to not assume a lot and be curious about the world around you. It's not the same as just wanting to learn everything, but what makes other humans tick? How do they feel? How do they love? It might be cliche to say the meaning of life is to love, right?
+
+SPEAKER A
+So that curiosity is just about noticing the world, noticing the world around you.
+
+SPEAKER B
+Look, there's someone just anecdote someone says, everybody has two lives, and the second one starts when you realize there's only one. And I think I usually preach to my children and everything else. Like, have a curiosity to the world around you, and you'll have the most fulfilling days.
+
+SPEAKER A
+Are you able to be inside the worlds that you've created and be able to notice them, really enjoy them?
+
+SPEAKER B
+It takes time. So, like, Skyrim had its 10th anniversary. So when I went back into it, I think I got to see it for what it is. My younger son got really into it a few years back on the switch. That's what we notice. People age up into it, right? So one of the reasons it's so popular is people come into they're now becoming teenagers and, oh, okay, I'll finally play Skyrim, and he got obsessed with it, and he wasn't usually I said, hey, check out my games, and like, oh, shut up, dad. We don't we're playing with other stuff. And he got, like, obsessed with Skyrim. Like, we're having, like, Deep Elder Scrolls lore conversations at dinner. And, you know, I saw it through his eyes, and that was pretty special. And then the mods he was downloading and the YouTubers he was following, talking about stuff. So the people who like the elders, girls, people don't realize how much of that I have watched with my son.
+
+SPEAKER A
+Yeah.
+
+SPEAKER B
+And then I kind of when the 10th anniversary came out, like, oh, I'm going to, you know, check out a bill. I have to check out the build out. But I hadn't played it in so long. And it was like, it does it has the flow. We're like, oh, my God, I just played for 4 hours. I need to turn it off.
+
+SPEAKER A
+Yeah, I mean, there's something about enjoying it again to the people you love, too, or the water cooler discussion and with kids. So actually, I would love to have kids and hopefully soon in the future. So I guess the thing I need your advice on is how do I time in a situation when they're old enough? Right? At the age they're old enough, I want to know when to have them so that when they're old enough, that's exactly when other school six comes out. Can you give me when I should have kids? All right, never mind that you were.
+
+SPEAKER B
+A genius at how to ask that question.
+
+SPEAKER A
+The number of times yeah. You told the anecdote that your son asked you the same question. But of course, it's all for good fun. Take as much time as needed. Skyrim is still an incredible game and has an impact on millions of people, as do all of your games. Thank you for everything you've done for the world.
+
+SPEAKER B
+Thank you.
+
+SPEAKER A
+It's a huge honor that you would talk with me.
+
+SPEAKER B
+This has been an honor and it has to be said, I have a huge team of people I've worked with for some of them for 20 years and it's really all of us together.
+
+SPEAKER A
+Keep doing a great job, guys and gals. I can't wait to see what you create next. It really does have an impact on silly kids like me and millions of silly kids like me. So I really appreciate everything.
+
+SPEAKER B
+Thank you.
+
+SPEAKER A
+Thanks, dad. Thanks for listening to this conversation with Todd Howard. To support this podcast, please check out our sponsors in the description. And now let me leave you with some words from Token. So come snow after fire and even dragons have their end. Thank you for listening and hope to see you next time.
