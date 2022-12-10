@@ -1,6 +1,7 @@
 from __future__ import print_function
 
 import os.path
+import time
 
 from pychatgpt import Chat, Options
 
@@ -16,7 +17,7 @@ SCOPES = ['https://www.googleapis.com/auth/documents.readonly',
           'https://www.googleapis.com/auth/drive.readonly']
 
 # The ID of a sample document.
-DOCUMENT_ID = '1lX6WGp_AyTwbLk_nr9dtRpHCTwnYgEgrT8eRXLvRbqc' # my single transcript
+DOCUMENT_ID = '1rlEGTbZ_ChN07mcjpSP3E6zc6T_V-ig1cpZ72KITuGI' # my single transcript
 
 credential_json = 'app_credential.json'
 
@@ -94,10 +95,33 @@ def main():
     """Shows basic usage of the Docs API.
     Prints the title of a sample document.
     """
+
+    prompt_header = f""" 
+        Summarize the following transcript. Write using the following format. Replace everything in <> brackets.
+
+        Main Points:
+        - <main point 1>
+        - <main point 2>
+        - <and so on>
+
+        Action Items:
+        - <action 1>
+        - <action 2>
+        - <and so on>
+
+        Most Recent Point
+        <very short summary of most recent point made>
+
+        Transcript:
+
+        """
+
     creds = get_credentials(force=False)
 
     try:
         ## This part is an experiement to read files to try and find the transcript
+        # good for file selection in js https://developers.google.com/drive/picker/guides/overview
+        # for now, hardcoded as DOCUMENT_ID
 
         # drive_service = build('drive', 'v3', credentials=creds)
         # files = []
@@ -115,57 +139,42 @@ def main():
         #     page_token = response.get('nextPageToken', None)
         #     if page_token is None:
         #         break
-
+        
     
 
         ## This part reads DOCUMENT_ID and prints everything
         doc_service = build('docs', 'v1', credentials=creds)
+        
+    except HttpError as err:
+        print(err)
+
+
+    while True:
 
         # Retrieve the documents contents from the Docs service.
         document = doc_service.documents().get(documentId=DOCUMENT_ID).execute()
 
         doc_content = document.get('body').get('content')
         transcript = read_structural_elements(doc_content)
-        print(transcript)
+        # print(transcript)
 
-    except HttpError as err:
-        print(err)
+        prompt = prompt_header + transcript
 
-    prompt_header = f""" 
-    Summarize the following transcript. Write using the following format. Replace everything in <> brackets.
+        # pip install chatgptpy --upgrade
+        options = Options()
+        email = None
+        password = None
+        if email is None or password is None:
+            raise Exception('Please enter your OpenAI Credentials')
 
-    Main Points:
-    - <main point 1>
-    - <main point 2>
-    - <and so on>
+        # Create a Chat object
+        chat = Chat(email=email, password=password, options=options)
+        answer = chat.ask(prompt)
 
-    Action Items:
-    - <action 1>
-    - <action 2>
-    - <and so on>
+        print(answer[0])
+        print('\n\n\n')
 
-    Most Recent Point
-    <very short summary of most recent point made>
-
-    Transcript:
-
-    """
-
-    prompt = prompt_header + transcript
-
-    # pip install chatgptpy --upgrade
-    options = Options()
-    email = None
-    password = None
-    if email is None or password is None:
-        raise Exception('Please enter your OpenAI Credentials')
-
-    # Create a Chat object
-    chat = Chat(email=email, password=password, options=options)
-    answer = chat.ask(prompt)
-
-    print(answer[0])
-
+        time.sleep(15)
 
 
 if __name__ == '__main__':
