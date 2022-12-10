@@ -2,11 +2,14 @@ from __future__ import print_function
 
 import os.path
 
+from pychatgpt import Chat, Options
+
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/documents.readonly',
@@ -15,8 +18,6 @@ SCOPES = ['https://www.googleapis.com/auth/documents.readonly',
 # The ID of a sample document.
 DOCUMENT_ID = '1lX6WGp_AyTwbLk_nr9dtRpHCTwnYgEgrT8eRXLvRbqc' # my single transcript
 
-# credential_json = 'client_secret_499221427375-7quumuce0ivfhnopqkvqnfpli2kvsg7o.apps.googleusercontent.com.json'
-# credential_json = 'client_secret_499221427375-dhr3ie1c49olj7highg1jdrrojj5tm23.apps.googleusercontent.com.json'
 credential_json = 'app_credential.json'
 
 
@@ -97,8 +98,8 @@ def main():
 
     try:
         ## This part is an experiement to read files to try and find the transcript
-        # drive_service = build('drive', 'v3', credentials=creds)
 
+        # drive_service = build('drive', 'v3', credentials=creds)
         # files = []
         # page_token = None
         # while True:
@@ -124,10 +125,47 @@ def main():
         document = doc_service.documents().get(documentId=DOCUMENT_ID).execute()
 
         doc_content = document.get('body').get('content')
-        print(read_structural_elements(doc_content))
+        transcript = read_structural_elements(doc_content)
+        print(transcript)
 
     except HttpError as err:
         print(err)
+
+    prompt_header = f""" 
+    Summarize the following transcript. Write using the following format. Replace everything in <> brackets.
+
+    Main Points:
+    - <main point 1>
+    - <main point 2>
+    - <and so on>
+
+    Action Items:
+    - <action 1>
+    - <action 2>
+    - <and so on>
+
+    Most Recent Point
+    <very short summary of most recent point made>
+
+    Transcript:
+
+    """
+
+    prompt = prompt_header + transcript
+
+    # pip install chatgptpy --upgrade
+    options = Options()
+    email = None
+    password = None
+    if email is None or password is None:
+        raise Exception('Please enter your OpenAI Credentials')
+
+    # Create a Chat object
+    chat = Chat(email=email, password=password, options=options)
+    answer = chat.ask(prompt)
+
+    print(answer[0])
+
 
 
 if __name__ == '__main__':
