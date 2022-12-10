@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "healthy-skill-107100",
+  "private_key_id": "3d93ae612dd08725bab112b983ebcf4963c509fc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDX+X9D4HjToCuc\nv3CyzVAyzxRKlZMZHwF4IrST2AJByORaNWI+eye+BCZ0e2YRO8tLULS0o/qi/ugy\ngUPln+V7EIiZpp6RXkVWpFBP/e1nCFlT3hRDdMB3l7k+hve7Z05wISH3i94rIAqW\nPSP+7saP7lLHWh2JWhc02+5xG1RbL6ff4bqAD9bAouQPJ7JHRix4KriZNpinhFT+\nvRytMFMnfBwTRVnmQE2zknvwmbubmX4ZMTKTqhVC0KaHe/seHUwDTuGxuQhdXmDL\nPTk84cw0VlxwDZUYN8phPGXcis0KkljBplQcQttTD4DpDkM5UUw1fDLvAcpbcDlA\nYRBVGtADAgMBAAECggEAHST+NLQuyewUMTpaTx6gAxiTtemPqJ+uVz5jsjcU6Di1\nAVaxM8TzHNQQNml34WfOwWfvgsLwGHJ1S2ogi0pJBug5GXb1G0vRPTsThWqQUKDn\n9lvXzdnhpncogyoRIHkf33Ib1H0g6sk6SdeQAHUgrB1D5Bf34r2at8IytTu0EKZ9\nqb/vzG9DeHwYs82ozpW42DcR1p7wL+qVwN8pv/9x7daDd7RJjashuRkxsjhu21Xm\nKkok2sH7y9skjGkoR7yhOF+jnbag5nIfo1IJYF4K/jMaQK92SL4I5Q0fMmFY1Ha1\nivx7ug6Tzcj2+JB8+OC3ouZ4O0clrOW+4oIMc20J2QKBgQD0ypwx9luj4pf9CU6+\nvL6FNX+88Kh1aVtj6nWVP4f2VDg46wNKGKOMkU9xm8bse9uLlaUE/C20zbiSn6JB\npAsPd7WdulHkZpzmfwKGtsdjS24kdX7Zi0ho+Il50zPqme4V9Vk9PHX3QaVuiW8A\n8Zfas95Gl9jO1Twkq/9gAMey+wKBgQDh3Ro5C1XOYZp/NBgHIsT/kukjxyOa1KzN\nuNgNOaAHLtl171nfYuAlQjspw9+z3iGz2S/pO2k3offTADBQKEGEdCVx89rLOIHv\n7x35/IbLko+jZEZAO0gX6mOwCh1nnC0nlR0KkN0NUPbDxc4jFtF4AF8cHVyf9G4W\nFk+WsCsImQKBgB+xX7mkQMceHjl3jAdr3mrWu1wV+GmDI37zKxgQqqS80K6l1r4w\nJHSdl6CI359chdczn7Leh3hiLiRloJdJCtmM0SnDprighG3fQc95OKVlbbQwtiSq\nQMy+aOYp7w3PsiCLrGseOdOyXx3Jk2KW5Oc+5GdVX4+f0fKZhi3CzBgjAoGAMuxe\n1S2xEu7+nl9oa3NzZwwAdIiZhncc3uUmERVE91mgve5RHQR19PCR1kDLVwpmHt6A\n5tz2RAzIi1InkmsBGpP1PVP1qIv8/9OxtoMxAQTyTax2ClVTU9EM2MvvBUU5CQud\nmJxAupfeixU1/MNQRvYOe5BDKe06RNCS8S6XBUECgYEAlY+JwPrk8ChXX0fV9aF6\nlXNm3rn1tMBwBHqBopXxd5FcsUweJWOKQofrih7z4ndqupGb1aGA+47rtNf5fz4d\nHM0fUGs/c36x7cSZBAtMrD66FZdZ8Ef7ZKzbFHdCPkj0X3M1cNoU6naMde6WR/YI\nf5vUUfstnaOx+duR+AZvgNc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "scribe@healthy-skill-107100.iam.gserviceaccount.com",
+  "client_id": "112746630957307395693",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/scribe%40healthy-skill-107100.iam.gserviceaccount.com"
+}
