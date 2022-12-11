@@ -3,7 +3,7 @@ const nextbutton = document.querySelector("#send-meeting");
 
 nextbutton.addEventListener("click", (e) => {
     let meetingdata = meetingInput.value.trim();
-    let date = new Date().toISOString().split("T").join(" ");
+    let date = new Date().toISOString();
     let meetinginfo = { date: date, meeting: meetingdata};
     let meetingjson = JSON.stringify(meetinginfo)
     if (meetingdata) {

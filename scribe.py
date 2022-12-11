@@ -19,6 +19,17 @@ SCOPES = ['https://www.googleapis.com/auth/documents.readonly',
 
 credential_json = 'app_credential.json'
 
+def filter_file(files, isotime):
+    for f in files:
+        file_time = time.strptime(f["createdTime"], '%Y-%m-%dT%H:%M:%SZ')
+        user_time = time.strptime(isotime, '%Y-%m-%dT%H:%M:%SZ')
+        file_time = time.mktime(file_time)
+        user_time = time.mktime(user_time)
+        if abs(file_time - user_time) < 300:
+            return f
+        
+
+
 def get_most_recent_transcript_id(creds):
     drive_service = build('drive', 'v3', credentials=creds)
 
@@ -26,10 +37,9 @@ def get_most_recent_transcript_id(creds):
     results = drive_service.files().list(
         q="mimeType = 'application/vnd.google-apps.folder' and fullText contains 'Meet Transcript'",
         spaces='drive',
-        pageSize=5,
-        fields="nextPageToken, files(id, name)").execute()
+        pageSize=100,
+        fields="nextPageToken,files(id,name, createdTime, modifiedTime)").execute()
     folders = results.get('files', [])
-    print(folders)
 
     if folders is None:
         raise Exception("Meet Transcript folder not found within google drive! You need to start a Google Meet and a transcript!\nDownload transcript generation app here: https://chrome.google.com/webstore/detail/meet-transcript/jkdogkallbmmdhpdjdpmoejkehfeefnb?hl=en")
@@ -42,12 +52,13 @@ def get_most_recent_transcript_id(creds):
         q=query,
         spaces='drive',
         pageSize=5,
-        fields="nextPageToken, files(id, name)").execute()
+        fields="nextPageToken, files(id,name, createdTime, modifiedTime)").execute()
     files = results.get('files', [])
+    print(files)
 
     # NOTE: results are sorted by recent first.
     if len(files) > 0:
-        print('Selected transcript file {}'.format(files[0]['name']))
+        # print('Selected transcript file {}'.format(files[0]['name']))
         return files[0]['id']
 
     return None
@@ -166,7 +177,7 @@ def main():
         - <and so on>
 
         Recent Summary: 
-        <very short summary of most recent point made>
+        <very short summary of the transcript>
 
         Transcript:
 
@@ -193,13 +204,13 @@ def main():
     while True:
         # Retrieve the documents contents from the Docs service.
         document = doc_service.documents().get(documentId=transcript_id).execute()
-
+        
         doc_content = document.get('body').get('content')
         transcript = read_structural_elements(doc_content)
 
         # TODO: check to see if there's new information in the transcript before sending to chat gpt
         prompt = prompt_header + transcript
-        print(prompt)
+        # print(prompt)
         answer = chat.ask(prompt)
 
         ## Things to track and maintain while running:
@@ -226,15 +237,15 @@ def main():
 
         summary = resp_groups[3]
 
-        print('\n\n\n\n')
-        print("\nAction Items")
-        print("\n".join(action_items))
-        print("\nMain Points")
-        print("\n".join(main_points))
-        print("\nRecent Summary")
-        print(summary)
-        print("\nRecent Transcript:")
-        print(" ".join(transcript.split(' ')[-20:]))
+        # print('\n\n\n\n')
+        # print("\nAction Items")
+        # print("\n".join(action_items))
+        # print("\nMain Points")
+        # print("\n".join(main_points))
+        # print("\nRecent Summary")
+        # print(summary)
+        # print("\nRecent Transcript:")
+        # print(" ".join(transcript.split(' ')[-20:]))
 
         # don't overload chat gpt?
         time.sleep(10)
