@@ -29,6 +29,7 @@ def get_most_recent_transcript_id(creds):
         pageSize=5,
         fields="nextPageToken, files(id, name)").execute()
     folders = results.get('files', [])
+    print(folders)
 
     if folders is None:
         raise Exception("Meet Transcript folder not found within google drive! You need to start a Google Meet and a transcript!\nDownload transcript generation app here: https://chrome.google.com/webstore/detail/meet-transcript/jkdogkallbmmdhpdjdpmoejkehfeefnb?hl=en")
@@ -125,6 +126,10 @@ def get_gpt_chat(email=None, password=None):
     $ pip install chatgptpy --upgrade
     """
     options = Options()
+    options.log = True
+    options.track = True
+    chat = Chat(email=email, password=password, options=options)
+    answer = chat.ask("How are you?")
     if email is None or password is None:
         raise Exception('Please enter your OpenAI Credentials')
 
@@ -168,7 +173,7 @@ def main():
         """
 
     creds = get_credentials(force=False)
-    chat = get_gpt_chat()
+    chat = get_gpt_chat(email="srinivas.thestallion.vishal@gmail.com", password="$Birth$1995$")
 
     try:
         # TODO option that allows user to select the document

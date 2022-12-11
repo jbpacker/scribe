@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8c276, #48daf7);
+  }
+  
+  ::selection {
+    color: #fff;
+    background: #f12711;
+  }
+  
+  .wrapper {
+    max-width: 70%;
+    background: #fff;
+    margin: 25px auto;
+    border-radius: 7px;
+    padding: 30px 0 30px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+  }
+
+  .task-input {
+    position: relative;
+    height: 52px;
+    padding: 0 25px;
+  }
+  
+  .task-input ion-icon {
+    position: absolute;
+    top: 50%;
+    color: #999;
+    font-size: 25px;
+    transform: translate(17px, -50%);
+  }
+  
+  .task-input input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 0 20px 0 53px;
+    border: 1px solid #999;
+  }
+  
+  .task-input input:focus,
+  .task-input input.active {
+    padding-left: 52px;
+    border: 2px solid #f12711;
+  }
+  
+  .task-input input::placeholder {
+    color: #bfbfbf;
+  }
+  
+  .controls,
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .controls {
+    padding: 18px 25px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .filters span {
+    margin: 0 8px;
+    font-size: 17px;
+    color: #444444;
+    cursor: pointer;
+  }
+  
+  .filters span:first-child {
+    margin-left: 0;
+  }
+  
+  .filters span.active {
+    color: #f12711;
+  }
+  
+  .clear-btn {
+    border: none;
+    opacity: 0.6;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 7px 13px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+    transition: transform 0.25s ease;
+    background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+  }
+  
+  .clear-btn.active {
+    opacity: 0.9;
+    pointer-events: auto;
+  }
+  
+  .clear-btn:active {
+    transform: scale(0.93);
+  }
+  
+  .task-box {
+    margin-top: 20px;
+    margin-right: 5px;
+    padding: 0 20px 10px 25px;
+  }
+  
+  .task-box.overflow {
+    overflow-y: auto;
+    max-height: 300px;
+  }
+  
+  .task-box::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .task-box::-webkit-scrollbar-track {
+    background: #f12711;
+    border-radius: 25px;
+  }
+  
+  .task-box::-webkit-scrollbar-thumb {
+    background: #e6e6e6;
+    border-radius: 25px;
+  }
+  
+  .task-box .task {
+    list-style: none;
+    font-size: 17px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    align-items: flex-start;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .task-box .task:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .task-box .task label {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .task label input {
+    margin-top: 7px;
+    accent-color: #f12711;
+  }
+  
+  .task label p {
+    user-select: none;
+    margin-left: 12px;
+    word-wrap: break-word;
+  }
+  
+  .task label p.checked {
+    text-decoration: line-through;
+  }
+  
+  .task-box .settings {
+    position: relative;
+  }
+  
+  .settings :where(i, li) {
+    cursor: pointer;
+  }
+  
+  .settings .task-menu {
+    position: absolute;
+    right: -5px;
+    bottom: -65px;
+    padding: 5px 0;
+    background: #fff;
+    border-radius: 4px;
+    transform: scale(0);
+    transform-origin: top right;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+    z-index: 10;
+  }
+  
+  .task-box .task:last-child .task-menu {
+    bottom: 0;
+    transform-origin: bottom right;
+  }
+  
+  .task-box .task:first-child .task-menu {
+    bottom: -65px;
+    transform-origin: top right;
+  }
+  
+  .task-menu.show {
+    transform: scale(1);
+  }
+  
+  .task-menu li {
+    height: 25px;
+    font-size: 16px;
+    margin-bottom: 2px;
+    padding: 17px 15px;
+    cursor: pointer;
+    justify-content: flex-start;
+  }
+  
+  .task-menu li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .settings li:hover {
+    background: #f5f5f5;
+  }
+  
+  .settings li i {
+    padding-right: 8px;
+  }
+  
+  @media (max-width: 400px) {
+    body {
+      padding: 0 10px;
+    }
+    .wrapper {
+      padding: 20px 0;
+    }
+    .filters span {
+      margin: 0 5px;
+    }
+    .task-input {
+      padding: 0 20px;
+    }
+    .controls {
+      padding: 18px 20px;
+    }
+    .task-box {
+      margin-top: 20px;
+      margin-right: 5px;
+      padding: 0 15px 10px 20px;
+    }
+    .task label input {
+      margin-top: 4px;
+    }
+  }
+  
+
+.button {
+    margin: 10%;
+    text-align: center;
+}
+
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 45%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.btn-hover.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+.btn-hover.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.btn-hover.color-4 {
+    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+}
+.btn-hover.color-5 {
+    background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+.btn-hover.color-6 {
+    background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+    box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+.btn-hover.color-7 {
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+.btn-hover.color-8 {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.btn-hover.color-9 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+.btn-hover.color-11 {
+       background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+
+h3 {margin-left: 55px;}
+
+textarea {
+  margin-top: 10px;
+  margin-left: 50px;
+  width: 80%;
+  height: 20%;
+  background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+  border-image: none;
+  border-radius: 6px 6px 6px 6px;
+  border-style: none solid solid none;
+  border-width: medium 1px 1px medium;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+  color: #555555;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 5px 8px;
+  transition: background-color 0.2s ease 0s;
+}
+
+
+textarea:focus {
+    background: none repeat scroll 0 0 #FFFFFF;
+    outline-width: 0;
+}
+
+

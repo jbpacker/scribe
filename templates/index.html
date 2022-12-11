@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Summary Generator</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="task-input">
+      <ion-icon name="create-outline"></ion-icon>
+      <input type="text" placeholder="Add a Prompt + Enter">
+    </div>
+    <div class="controls">
+      <div class="filters">
+        <span class="active" id="all">All</span>
+        <span id="pending">Pending</span>
+        <span id="completed">Completed</span>
+      </div>
+      <button class="clear-btn">Clear All</button>
+    </div>
+    <ul class="task-box"></ul>
+  </div>
+  <button id="send-prompt" class="button btn-hover color-7">Send Prompts</button>
+  <div class="wrapper">
+      <h3> Meeting Highlights based on prompts :</h3>
+      <br/>
+      <textarea id="summary"></textarea>
+  </div>
+  <button class="button btn-hover color-9">Save to PDF</button>
+</body>
+<script src="{{url_for('static', filename='index.js')}}"></script>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='index.css') }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</html>

@@ -1,0 +1,36 @@
+You: How are you?
+Chat GPT: I'm a large language model trained by OpenAI. I don't have feelings or emotions, so I can't experience things like happiness or sadness. I'm here to provide information and answer questions to the best of my ability. Is there anything I can help you with?
+You:  
+        Summarize the following transcript. Write using the following format. Replace everything in <> brackets.
+
+        Main Points:
+        - <main point 1>
+        - <main point 2>
+        - <and so on>
+
+        Action Items:
+        - <action 1>
+        - <action 2>
+        - <and so on>
+
+        Recent Summary: 
+        <very short summary of most recent point made>
+
+        Transcript:
+
+        Transcript
+
+14:30:58 - You:
+ Hi, hello. so,
+
+14:34:46 - You:
+ Oh, brother.
+
+Chat GPT: Main Points:
+- None
+
+Action Items:
+- None
+
+Recent Summary:
+- No recent points made.
