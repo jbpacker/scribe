@@ -16,11 +16,40 @@ from googleapiclient.errors import HttpError
 SCOPES = ['https://www.googleapis.com/auth/documents.readonly',
           'https://www.googleapis.com/auth/drive.readonly']
 
-# The ID of a sample document.
-DOCUMENT_ID = '1qPJ_sb9W0VhdpsFXhOQP9BFbLVK4dIpvr8alG_mHblU' # my single transcript
 
 credential_json = 'app_credential.json'
 
+def get_most_recent_transcript_id(creds):
+    drive_service = build('drive', 'v3', credentials=creds)
+
+    # first find the transcript folder
+    results = drive_service.files().list(
+        q="mimeType = 'application/vnd.google-apps.folder' and fullText contains 'Meet Transcript'",
+        spaces='drive',
+        pageSize=5,
+        fields="nextPageToken, files(id, name)").execute()
+    folders = results.get('files', [])
+
+    if folders is None:
+        raise Exception("Meet Transcript folder not found within google drive! You need to start a Google Meet and a transcript!\nDownload transcript generation app here: https://chrome.google.com/webstore/detail/meet-transcript/jkdogkallbmmdhpdjdpmoejkehfeefnb?hl=en")
+
+    assert len(folders) == 1
+
+    # Use the transcript folder to query for the most recent document
+    query = "mimeType='application/vnd.google-apps.document' and '" + str(folders[0]['id']) + "' in parents"
+    results = drive_service.files().list(
+        q=query,
+        spaces='drive',
+        pageSize=5,
+        fields="nextPageToken, files(id, name)").execute()
+    files = results.get('files', [])
+
+    # NOTE: results are sorted by recent first.
+    if len(files) > 0:
+        print('Selected transcript file {}'.format(files[0]['name']))
+        return files[0]['id']
+
+    return None
 
 def read_paragraph_element(element):
     """Returns the text in the given ParagraphElement.
@@ -142,28 +171,8 @@ def main():
     chat = get_gpt_chat()
 
     try:
-        ## This part is an experiement to read files to try and find the transcript
-        # good for file selection in js https://developers.google.com/drive/picker/guides/overview
-        # for now, hardcoded as DOCUMENT_ID
-
-        # drive_service = build('drive', 'v3', credentials=creds)
-        # files = []
-        # page_token = None
-        # while True:
-        #     response = drive_service.files().list(
-        #         q="mimeType='image/jpeg'",
-        #         spaces='drive',
-        #         fields='nextPageToken, files(id, name)',
-        #         pageToken=page_token).execute()
-        #     for file in response.get('files', []):
-        #         # Process change
-        #         print(F'Found file: {file.get("name")}, {file.get("id")}')
-        #     files.extend(response.get('files', []))
-        #     page_token = response.get('nextPageToken', None)
-        #     if page_token is None:
-        #         break
-        
-    
+        # TODO option that allows user to select the document
+        transcript_id = get_most_recent_transcript_id(creds)
 
         ## This part reads DOCUMENT_ID and prints everything
         doc_service = build('docs', 'v1', credentials=creds)
@@ -176,11 +185,9 @@ def main():
     action_items = []
     main_points = []
 
-    i = 0
     while True:
-        i += 1
         # Retrieve the documents contents from the Docs service.
-        document = doc_service.documents().get(documentId=DOCUMENT_ID).execute()
+        document = doc_service.documents().get(documentId=transcript_id).execute()
 
         doc_content = document.get('body').get('content')
         transcript = read_structural_elements(doc_content)
@@ -189,14 +196,19 @@ def main():
         prompt = prompt_header + transcript
         answer = chat.ask(prompt)
 
-        # Things to track and maintain:
-        # Recent transcript: Last few words
-        # Recent summary: Summary of most recent thing said
-        # Action items: This should be a list that just keep appending on new action items when chat runs
-        # Main points: Operates the same way as action items
+        ## Things to track and maintain while running:
+        # Action items:       A list that keep appending new action items
+        # Main points:        Operates the same as action items
+        # Recent summary:     Summary of most recent thing said
+        # Recent transcript:  Last few words
         resp_groups = split(answer[0], ['Main Points:', 'Action Items:', 'Recent Summary:'])
         
-        # ensure no duplicates, this way isn't as pretty, but it maintains order
+        # TODO don't append if main points or actions == none
+        #      `- None mentioned`, `- None specified.`, `- No action items were discussed.`
+        #      `- No main points were discussed.`
+        # TODO check if len(main_points) == 0 and write a default response
+
+        # Ensure no duplicates. this way isn't pretty, but it maintains order
         for point in resp_groups[1].split('\n'):
             # TODO: better comparison
             if point not in main_points:
