@@ -17,7 +17,7 @@ SCOPES = ['https://www.googleapis.com/auth/documents.readonly',
           'https://www.googleapis.com/auth/drive.readonly']
 
 # The ID of a sample document.
-DOCUMENT_ID = '1rlEGTbZ_ChN07mcjpSP3E6zc6T_V-ig1cpZ72KITuGI' # my single transcript
+DOCUMENT_ID = '1qPJ_sb9W0VhdpsFXhOQP9BFbLVK4dIpvr8alG_mHblU' # my single transcript
 
 credential_json = 'app_credential.json'
 
@@ -90,6 +90,28 @@ def get_credentials(force=False):
 
     return creds
 
+def get_gpt_chat(email=None, password=None):
+    """
+    Don't forget to install gpt chat!
+    $ pip install chatgptpy --upgrade
+    """
+    options = Options()
+    if email is None or password is None:
+        raise Exception('Please enter your OpenAI Credentials')
+
+    # Create a Chat object
+    return Chat(email=email, password=password, options=options)
+
+def split(txt, seps):
+    """
+    Splits a string with multiple delimiters
+    """
+    default_sep = seps[0]
+
+    # we skip seps[0] because that's the default separator
+    for sep in seps[1:]:
+        txt = txt.replace(sep, default_sep)
+    return [i.strip() for i in txt.split(default_sep)]
 
 def main():
     """Shows basic usage of the Docs API.
@@ -109,7 +131,7 @@ def main():
         - <action 2>
         - <and so on>
 
-        Most Recent Point
+        Recent Summary: 
         <very short summary of most recent point made>
 
         Transcript:
@@ -117,6 +139,7 @@ def main():
         """
 
     creds = get_credentials(force=False)
+    chat = get_gpt_chat()
 
     try:
         ## This part is an experiement to read files to try and find the transcript
@@ -144,37 +167,59 @@ def main():
 
         ## This part reads DOCUMENT_ID and prints everything
         doc_service = build('docs', 'v1', credentials=creds)
-        
+
+
     except HttpError as err:
         print(err)
 
 
-    while True:
+    action_items = []
+    main_points = []
 
+    i = 0
+    while True:
+        i += 1
         # Retrieve the documents contents from the Docs service.
         document = doc_service.documents().get(documentId=DOCUMENT_ID).execute()
 
         doc_content = document.get('body').get('content')
         transcript = read_structural_elements(doc_content)
-        # print(transcript)
 
+        # TODO: check to see if there's new information in the transcript before sending to chat gpt
         prompt = prompt_header + transcript
-
-        # pip install chatgptpy --upgrade
-        options = Options()
-        email = None
-        password = None
-        if email is None or password is None:
-            raise Exception('Please enter your OpenAI Credentials')
-
-        # Create a Chat object
-        chat = Chat(email=email, password=password, options=options)
         answer = chat.ask(prompt)
 
-        print(answer[0])
-        print('\n\n\n')
+        # Things to track and maintain:
+        # Recent transcript: Last few words
+        # Recent summary: Summary of most recent thing said
+        # Action items: This should be a list that just keep appending on new action items when chat runs
+        # Main points: Operates the same way as action items
+        resp_groups = split(answer[0], ['Main Points:', 'Action Items:', 'Recent Summary:'])
+        
+        # ensure no duplicates, this way isn't as pretty, but it maintains order
+        for point in resp_groups[1].split('\n'):
+            # TODO: better comparison
+            if point not in main_points:
+                main_points.append(point)
+        
+        for action in resp_groups[2].split('\n'):
+            if action not in action_items:
+                action_items.append(action)
 
-        time.sleep(15)
+        summary = resp_groups[3]
+
+        print('\n\n\n\n')
+        print("\nAction Items")
+        print("\n".join(action_items))
+        print("\nMain Points")
+        print("\n".join(main_points))
+        print("\nRecent Summary")
+        print(summary)
+        print("\nRecent Transcript:")
+        print(" ".join(transcript.split(' ')[-20:]))
+
+        # don't overload chat gpt?
+        time.sleep(10)
 
 
 if __name__ == '__main__':
