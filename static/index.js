@@ -16,11 +16,12 @@ nextbutton.addEventListener("click", (e) => {
             contentType: 'application/json; charset=utf-8',
             success: function (response) {
                 alert("Meeting info saved !! Click next to add prompts");
+                localStorage.setItem("meeting-info", meetingjson);
             },
             error: function() {
                 alert("error");
             }
         });
-        localStorage.setItem("meeting-info", meetingjson);
+        window.location = "http://127.0.0.1:8080/prompt"
     }
   });

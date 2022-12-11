@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, redirect, url_for
 from scribe import *
 from multiprocessing import Queue
 
@@ -40,6 +40,10 @@ PROMPT_HEADER = f"""
 def index():
     return render_template("index.html")
 
+@app.route("/prompt")
+def prompt():
+    return render_template("prompt.html")
+
 @app.route("/meeting", methods=["POST"])
 def post_user_prompt():
     request_data = request.get_json()
@@ -52,7 +56,7 @@ def post_user_prompt():
         print("##############")
     except HttpError as err:
         print(err)
-    return render_template("prompt.html")
+    return jsonify(dict(response="200"))
 
 @app.route("/summary", methods=["GET"])
 def get_user_prompt():
@@ -89,6 +93,6 @@ def get_user_prompt():
 
 if __name__ == "__main__":
     CREDS = get_credentials(force=False)
-    # CHAT = get_gpt_chat(email="srinivas.thestallion.vishal@gmail.com", password="$Birth$1995$")
+    CHAT = get_gpt_chat(email="srinivas.thestallion.vishal@gmail.com", password="$Birth$1995$")
     FOLDERID = get_folder(CREDS)
     app.run(host="0.0.0.0", port=8080, debug=True)
