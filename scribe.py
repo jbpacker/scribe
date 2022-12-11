@@ -199,6 +199,7 @@ def main():
 
         # TODO: check to see if there's new information in the transcript before sending to chat gpt
         prompt = prompt_header + transcript
+        print(prompt)
         answer = chat.ask(prompt)
 
         ## Things to track and maintain while running:

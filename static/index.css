@@ -370,4 +370,38 @@ textarea:focus {
     outline-width: 0;
 }
 
+.meeting-input {
+  position: relative;
+  height: 52px;
+  padding: 0 25px;
+}
+
+.meeting-input ion-icon {
+  position: absolute;
+  top: 50%;
+  color: #999;
+  font-size: 25px;
+  transform: translate(17px, -50%);
+}
+
+.meeting-input input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 0 20px 0 53px;
+  border: 1px solid #999;
+}
+
+.meeting-input input:focus,
+.meeting-input input.active {
+  padding-left: 52px;
+  border: 2px solid #f12711;
+}
+
+.meeting-input input::placeholder {
+  color: #bfbfbf;
+}
+
 
