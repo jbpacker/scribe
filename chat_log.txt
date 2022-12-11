@@ -514,3 +514,5 @@ You: How are you?
 Chat GPT: I'm just a computer program, so I don't have feelings or emotions. I exist to assist you with any questions you might have, to the best of my abilities. Is there anything specific you would like help with?
 You: How are you?
 Chat GPT: I'm just a machine learning model, so I don't have feelings or emotions. I exist to provide information and answer questions to the best of my ability based on the data that I've been trained on. Is there something specific you'd like to know? I'll do my best to help.
+You: How are you?
+Chat GPT: I am just a computer program, so I don't have the ability to feel emotions like a human does. I exist to provide information and answer questions to the best of my ability. Is there something I can help you with?

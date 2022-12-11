@@ -156,8 +156,6 @@ def get_gpt_chat(email=None, password=None):
     options = Options()
     options.log = True
     options.track = True
-    chat = Chat(email=email, password=password, options=options)
-    answer = chat.ask("How are you?")
     if email is None or password is None:
         raise Exception('Please enter your OpenAI Credentials')
 
