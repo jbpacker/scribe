@@ -1,4 +1,5 @@
 const generateButton = document.querySelector("#generate-summary");
+const summaryarea = document.querySelector("#summary")
 
 generateButton.addEventListener("click", (e) => {
         $.ajax({
@@ -9,7 +10,8 @@ generateButton.addEventListener("click", (e) => {
               $('#loader').removeClass('hidden')
             },
             success: function (response) {
-              console.log(response);
+              console.log(response.result);
+              summaryarea.innerHTML = response.result;
             },
             complete: function(){
               $('#loader').addClass('hidden')
