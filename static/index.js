@@ -5,6 +5,7 @@ nextbutton.addEventListener("click", (e) => {
     let meetingdata = meetingInput.value.trim();
     let date = new Date().toISOString();
     let meetinginfo = { date: date, meeting: meetingdata};
+    console.log("asfnasldkf : ", meetinginfo)
     let meetingjson = JSON.stringify(meetinginfo)
     if (meetingdata) {
         console.log(meetingjson);

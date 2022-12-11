@@ -1,7 +1,7 @@
 from __future__ import print_function
 
 import os.path
-import time
+import datetime
 
 from pychatgpt import Chat, Options
 
@@ -19,18 +19,32 @@ SCOPES = ['https://www.googleapis.com/auth/documents.readonly',
 
 credential_json = 'app_credential.json'
 
+def parsetime(isotimestring):
+    isotimestring = isotimestring.split("T")[1]
+    time_string = ":".join(isotimestring.split(":")[:-1])
+    # print("#################")
+    print(time_string)
+    # print("#################")
+    return datetime.datetime.strptime(time_string, "%H:%M")
+
 def filter_file(files, isotime):
+    sorted(files, key=lambda x: parsetime(x["createdTime"]), reverse=True)
     for f in files:
-        file_time = time.strptime(f["createdTime"], '%Y-%m-%dT%H:%M:%SZ')
-        user_time = time.strptime(isotime, '%Y-%m-%dT%H:%M:%SZ')
-        file_time = time.mktime(file_time)
-        user_time = time.mktime(user_time)
-        if abs(file_time - user_time) < 300:
-            return f
+        # 'createdTime': '2022-12-10T20:28:28.214Z'
+        file_date = f["name"].split("-")[0].split(" ")[0]
+        file_time = f["name"].split("-")[0].split(" ")[1]
+        user_date = isotime.split(" ")[0]
+        user_time = isotime.split(" ")[1]
+        if file_date == user_date:
+            print("$$$$$$$$$$$$$$$$$$$$$")
+            d1=datetime.datetime.strptime(user_time,'%H:%M')
+            d2=datetime.datetime.strptime(file_time,'%H:%M')
+            delta = d1 - d2
+            if delta.seconds < 300:
+                print("########## Success ############")
+                return f
         
-
-
-def get_most_recent_transcript_id(creds):
+def get_folder(creds):
     drive_service = build('drive', 'v3', credentials=creds)
 
     # first find the transcript folder
@@ -45,21 +59,24 @@ def get_most_recent_transcript_id(creds):
         raise Exception("Meet Transcript folder not found within google drive! You need to start a Google Meet and a transcript!\nDownload transcript generation app here: https://chrome.google.com/webstore/detail/meet-transcript/jkdogkallbmmdhpdjdpmoejkehfeefnb?hl=en")
 
     assert len(folders) == 1
+    return folders[0]['id']
+
+def get_most_recent_transcript_id(creds, folder_id, datetime):
+    drive_service = build('drive', 'v3', credentials=creds)
 
     # Use the transcript folder to query for the most recent document
-    query = "mimeType='application/vnd.google-apps.document' and '" + str(folders[0]['id']) + "' in parents"
+    query = "mimeType='application/vnd.google-apps.document' and '" + folder_id + "' in parents"
     results = drive_service.files().list(
         q=query,
         spaces='drive',
         pageSize=5,
         fields="nextPageToken, files(id,name, createdTime, modifiedTime)").execute()
     files = results.get('files', [])
-    print(files)
 
     # NOTE: results are sorted by recent first.
     if len(files) > 0:
-        # print('Selected transcript file {}'.format(files[0]['name']))
-        return files[0]['id']
+        id = filter_file(files, isotime=datetime)
+        return id
 
     return None
 
@@ -237,15 +254,15 @@ def main():
 
         summary = resp_groups[3]
 
-        # print('\n\n\n\n')
-        # print("\nAction Items")
-        # print("\n".join(action_items))
-        # print("\nMain Points")
-        # print("\n".join(main_points))
-        # print("\nRecent Summary")
-        # print(summary)
-        # print("\nRecent Transcript:")
-        # print(" ".join(transcript.split(' ')[-20:]))
+        print('\n\n\n\n')
+        print("\nAction Items")
+        print("\n".join(action_items))
+        print("\nMain Points")
+        print("\n".join(main_points))
+        print("\nRecent Summary")
+        print(summary)
+        print("\nRecent Transcript:")
+        print(" ".join(transcript.split(' ')[-20:]))
 
         # don't overload chat gpt?
         time.sleep(10)
